@@ -1,10 +1,7 @@
 package org.hendrix.betterpalegarden;
 
 import net.fabricmc.api.ModInitializer;
-import org.hendrix.betterpalegarden.core.BPGBlocks;
-import org.hendrix.betterpalegarden.core.BPGEntities;
-import org.hendrix.betterpalegarden.core.BPGItemGroups;
-import org.hendrix.betterpalegarden.core.BPGItems;
+import org.hendrix.betterpalegarden.core.*;
 
 /**
  * Hendrix's Better Pale Garden
@@ -26,6 +23,7 @@ public final class BetterPaleGarden implements ModInitializer {
         BPGItems.register();
         BPGBlocks.register();
         BPGEntities.register();
+        BPGPlacedFeatures.addToBiomes();
     }
 
 }

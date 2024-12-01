@@ -9,6 +9,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.resource.featuretoggle.FeatureFlags;
 import org.hendrix.betterpalegarden.BetterPaleGarden;
 import org.hendrix.betterpalegarden.utils.IdentifierUtils;
 
@@ -27,6 +28,7 @@ public final class BPGEntities {
                     .dimensions(0.7F, 1.9F)
                     .eyeHeight(1.7F)
                     .maxTrackingRange(8)
+                    .requires(FeatureFlags.WINTER_DROP)
                     .build(RegistryKey.of(RegistryKeys.ENTITY_TYPE, IdentifierUtils.modIdentifier("snow_golem")))
     );
 

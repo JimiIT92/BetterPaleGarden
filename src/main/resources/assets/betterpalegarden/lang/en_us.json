@@ -3,5 +3,8 @@
   "block.betterpalegarden.white_pumpkin": "White Pumpkin",
   "block.betterpalegarden.carved_white_pumpkin": "Carved White Pumpkin",
   "block.betterpalegarden.soul_o_lantern": "Soul o'Lantern",
-  "item.betterpalegarden.snow_golem_spawn_egg": "White Pumpkin Snow Golem Spawn Egg"
+  "block.betterpalegarden.thorn_bush": "Thorn Bush",
+  "item.betterpalegarden.snow_golem_spawn_egg": "White Pumpkin Snow Golem Spawn Egg",
+  "death.attack.thornBush": "%1$s was poked to death by a thorn bush",
+  "death.attack.thornBush.player": "%1$s was poked to death by a thorn bush while trying to escape %2$s"
 }

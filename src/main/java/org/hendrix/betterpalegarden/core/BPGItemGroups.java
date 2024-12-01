@@ -27,6 +27,7 @@ public final class BPGItemGroups {
                         entries.add(BPGBlocks.WHITE_PUMPKIN);
                         entries.add(BPGBlocks.CARVED_WHITE_PUMPKIN);
                         entries.add(BPGBlocks.SOUL_O_LANTERN);
+                        entries.add(BPGBlocks.THORN_BUSH);
                         entries.add(BPGItems.SNOW_GOLEM_SPAWN_EGG);
                     })
                     .build()

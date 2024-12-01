@@ -3,11 +3,14 @@ package org.hendrix.betterpalegarden.client;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.client.render.entity.model.SnowGolemEntityModel;
 import org.hendrix.betterpalegarden.BetterPaleGarden;
+import org.hendrix.betterpalegarden.core.BPGBlocks;
 import org.hendrix.betterpalegarden.core.BPGEntities;
 import org.hendrix.betterpalegarden.entity.renderer.WhitePumpkinSnowGolemRenderer;
 import org.hendrix.betterpalegarden.utils.IdentifierUtils;
@@ -25,6 +28,8 @@ public final class BetterPaleGardenClient implements ClientModInitializer {
      */
     @Override
     public void onInitializeClient() {
+        BlockRenderLayerMap.INSTANCE.putBlock(BPGBlocks.THORN_BUSH, RenderLayer.getCutout());
+
         EntityRendererRegistry.register(BPGEntities.SNOW_GOLEM, WhitePumpkinSnowGolemRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(MODEL_SNOW_GOLEM_LAYER, SnowGolemEntityModel::getTexturedModelData);
     }

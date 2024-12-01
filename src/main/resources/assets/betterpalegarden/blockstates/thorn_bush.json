@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "betterpalegarden:block/thorn_bush_bottom"
+    },
+    "half=upper": {
+      "model": "betterpalegarden:block/thorn_bush_top"
+    }
+  }
+}

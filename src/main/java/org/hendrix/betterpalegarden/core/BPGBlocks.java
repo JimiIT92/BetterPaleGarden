@@ -6,17 +6,11 @@ import net.minecraft.block.dispenser.EquippableDispenserBehavior;
 import net.minecraft.block.dispenser.FallibleItemDispenserBehavior;
 import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.block.piston.PistonBehavior;
-import net.minecraft.component.DataComponentTypes;
-import net.minecraft.component.type.EquippableComponent;
-import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
-import net.minecraft.resource.featuretoggle.FeatureFlags;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPointer;
@@ -25,6 +19,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import org.hendrix.betterpalegarden.BetterPaleGarden;
 import org.hendrix.betterpalegarden.block.CarvedWhitePumpkinBlock;
+import org.hendrix.betterpalegarden.block.ThornBushBlock;
 import org.hendrix.betterpalegarden.block.WhitePumpkinBlock;
 import org.hendrix.betterpalegarden.utils.IdentifierUtils;
 
@@ -45,8 +40,8 @@ public final class BPGBlocks {
                     .sounds(BlockSoundGroup.WOOD)
                     .pistonBehavior(PistonBehavior.DESTROY)
                     .registryKey(RegistryKey.of(RegistryKeys.BLOCK, IdentifierUtils.modIdentifier("white_pumpkin")))
-                    .requires(FeatureFlags.WINTER_DROP)
     )));
+
     public static final Block CARVED_WHITE_PUMPKIN = registerBlock("carved_white_pumpkin", Suppliers.memoize(() -> new CarvedWhitePumpkinBlock(
             AbstractBlock.Settings.create()
                     .mapColor(MapColor.WHITE)
@@ -55,8 +50,8 @@ public final class BPGBlocks {
                     .allowsSpawning(Blocks::always)
                     .pistonBehavior(PistonBehavior.DESTROY)
                     .registryKey(RegistryKey.of(RegistryKeys.BLOCK, IdentifierUtils.modIdentifier("carved_white_pumpkin")))
-                    .requires(FeatureFlags.WINTER_DROP)
     )));
+
     public static final Block SOUL_O_LANTERN = registerBlock("soul_o_lantern", Suppliers.memoize(() -> new CarvedWhitePumpkinBlock(
             AbstractBlock.Settings.create()
                     .mapColor(MapColor.WHITE)
@@ -66,7 +61,19 @@ public final class BPGBlocks {
                     .pistonBehavior(PistonBehavior.DESTROY)
                     .luminance(state -> 10)
                     .registryKey(RegistryKey.of(RegistryKeys.BLOCK, IdentifierUtils.modIdentifier("soul_o_lantern")))
-                    .requires(FeatureFlags.WINTER_DROP)
+    )));
+
+    public static final Block THORN_BUSH = registerBlock("thorn_bush", Suppliers.memoize(() -> new ThornBushBlock(
+            AbstractBlock.Settings.create()
+                    .mapColor(MapColor.GRAY)
+                    .replaceable()
+                    .noCollision()
+                    .breakInstantly()
+                    .sounds(BlockSoundGroup.GRASS)
+                    .offset(AbstractBlock.OffsetType.XZ)
+                    .burnable()
+                    .pistonBehavior(PistonBehavior.DESTROY)
+                    .registryKey(RegistryKey.of(RegistryKeys.BLOCK, IdentifierUtils.modIdentifier("thorn_bush")))
     )));
 
     //#endregion
@@ -80,26 +87,8 @@ public final class BPGBlocks {
      */
     private static Block registerBlock(final String name, final Supplier<Block> blockSupplier) {
         final Identifier identifier = IdentifierUtils.modIdentifier(name);
-        registerBlockItem(identifier, blockSupplier);
+        BPGItems.registerBlockItem(identifier, blockSupplier);
         return Registry.register(Registries.BLOCK, identifier, blockSupplier.get());
-    }
-
-    /**
-     * Register a {@link BlockItem Block Item}
-     *
-     * @param identifier The {@link Identifier Block Identifier}
-     * @param blockSupplier The {@link Supplier<Block> Block Supplier}
-     */
-    private static void registerBlockItem(final Identifier identifier, final Supplier<Block> blockSupplier) {
-        Item.Settings itemSettings = new Item.Settings().registryKey(RegistryKey.of(RegistryKeys.ITEM, identifier)).useBlockPrefixedTranslationKey();
-        if(identifier.getPath().equals("carved_white_pumpkin")) {
-            itemSettings = itemSettings.component(
-                    DataComponentTypes.EQUIPPABLE,
-                    EquippableComponent.builder(EquipmentSlot.HEAD).swappable(false).cameraOverlay(Identifier.ofVanilla("misc/pumpkinblur")).build()
-            );
-        }
-
-        Registry.register(Registries.ITEM, identifier, new BlockItem(blockSupplier.get(), itemSettings));
     }
 
     /**

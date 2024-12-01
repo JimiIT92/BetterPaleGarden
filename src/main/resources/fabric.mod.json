@@ -14,6 +14,9 @@
   "icon": "assets/betterpalegarden/icon.png",
   "environment": "*",
   "entrypoints": {
+    "client": [
+      "org.hendrix.betterpalegarden.client.BetterPaleGardenClient"
+    ],
     "main": [
       "org.hendrix.betterpalegarden.BetterPaleGarden"
     ]

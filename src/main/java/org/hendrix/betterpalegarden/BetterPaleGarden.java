@@ -2,6 +2,7 @@ package org.hendrix.betterpalegarden;
 
 import net.fabricmc.api.ModInitializer;
 import org.hendrix.betterpalegarden.core.BPGBlocks;
+import org.hendrix.betterpalegarden.core.BPGEntities;
 import org.hendrix.betterpalegarden.core.BPGItemGroups;
 
 /**
@@ -22,6 +23,7 @@ public final class BetterPaleGarden implements ModInitializer {
     public void onInitialize() {
         BPGItemGroups.register();
         BPGBlocks.register();
+        BPGEntities.register();
     }
 
 }

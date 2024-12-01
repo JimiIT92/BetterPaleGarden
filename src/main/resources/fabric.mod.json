@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "better_pale_garden",
+  "version": "${version}",
+  "name": "Hendrix's Better Pale Garden",
+  "description": "Boost the Pale Garden with White Pumpkins, new Resin Blocks and a new Structure!  ",
+  "authors": [],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/better_pale_garden/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "org.hendrix.betterpalegarden.client.BetterPaleGardenClient"
+    ],
+    "main": [
+      "org.hendrix.betterpalegarden.BetterPaleGarden"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}

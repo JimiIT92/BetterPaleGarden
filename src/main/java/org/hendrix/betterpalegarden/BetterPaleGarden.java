@@ -1,6 +1,8 @@
 package org.hendrix.betterpalegarden;
 
 import net.fabricmc.api.ModInitializer;
+import org.hendrix.betterpalegarden.core.BPGBlocks;
+import org.hendrix.betterpalegarden.core.BPGItemGroups;
 
 /**
  * Hendrix's Better Pale Garden
@@ -18,6 +20,8 @@ public final class BetterPaleGarden implements ModInitializer {
      */
     @Override
     public void onInitialize() {
+        BPGItemGroups.register();
+        BPGBlocks.register();
     }
 
 }

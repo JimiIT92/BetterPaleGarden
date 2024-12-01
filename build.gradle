@@ -14,7 +14,7 @@ repositories {
 
 dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
-    mappings loom.officialMojangMappings()
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 }
@@ -31,7 +31,9 @@ processResources {
                 "mod_id": project.mod_id,
                 "mod_version": project.mod_version,
                 "mod_name": project.mod_name,
-                "mod_description": project.mod_description
+                "mod_description": project.mod_description,
+                "mod_author": project.mod_author,
+                "mod_url": project.mod_url
     }
 }
 

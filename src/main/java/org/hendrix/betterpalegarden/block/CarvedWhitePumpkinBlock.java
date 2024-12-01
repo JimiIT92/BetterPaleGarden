@@ -29,7 +29,7 @@ import java.util.function.Predicate;
 /**
  * Implementation class for a {@link Block Carved White Pumpkin Block}
  */
-public class CarvedWhitePumpkinBlock extends HorizontalFacingBlock {
+public final class CarvedWhitePumpkinBlock extends HorizontalFacingBlock {
 
     /**
      * The {@link MapCodec<CarvedWhitePumpkinBlock> Carved White Pumpkin Block Codec}
@@ -64,7 +64,7 @@ public class CarvedWhitePumpkinBlock extends HorizontalFacingBlock {
     /**
      * The {@link Predicate<BlockState> Block State predicate} indicating whether the block is a golem head
      */
-    private static final Predicate<BlockState> IS_GOLEM_HEAD_PREDICATE = state -> state != null && (state.isOf(BPGBlocks.CARVED_WHITE_PUMPKIN) || state.isOf(Blocks.JACK_O_LANTERN));
+    private static final Predicate<BlockState> IS_GOLEM_HEAD_PREDICATE = state -> state != null && (state.isOf(BPGBlocks.CARVED_WHITE_PUMPKIN) || state.isOf(BPGBlocks.SOUL_O_LANTERN));
 
     /**
      * Constructor. Set the {@link Block Block} properties

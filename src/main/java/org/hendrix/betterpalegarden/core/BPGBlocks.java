@@ -57,6 +57,17 @@ public final class BPGBlocks {
                     .registryKey(RegistryKey.of(RegistryKeys.BLOCK, IdentifierUtils.modIdentifier("carved_white_pumpkin")))
                     .requires(FeatureFlags.WINTER_DROP)
     )));
+    public static final Block SOUL_O_LANTERN = registerBlock("soul_o_lantern", Suppliers.memoize(() -> new CarvedWhitePumpkinBlock(
+            AbstractBlock.Settings.create()
+                    .mapColor(MapColor.WHITE)
+                    .strength(1.0F)
+                    .sounds(BlockSoundGroup.WOOD)
+                    .allowsSpawning(Blocks::always)
+                    .pistonBehavior(PistonBehavior.DESTROY)
+                    .luminance(state -> 10)
+                    .registryKey(RegistryKey.of(RegistryKeys.BLOCK, IdentifierUtils.modIdentifier("soul_o_lantern")))
+                    .requires(FeatureFlags.WINTER_DROP)
+    )));
 
     //#endregion
 

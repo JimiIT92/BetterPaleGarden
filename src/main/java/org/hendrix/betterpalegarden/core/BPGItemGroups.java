@@ -21,11 +21,12 @@ public final class BPGItemGroups {
             Registries.ITEM_GROUP,
             IdentifierUtils.modIdentifier(BetterPaleGarden.MOD_ID),
             FabricItemGroup.builder()
-                    .icon(Suppliers.memoize(() -> new ItemStack(BPGBlocks.WHITE_PUMPKIN)))
+                    .icon(Suppliers.memoize(() -> new ItemStack(BPGBlocks.CARVED_WHITE_PUMPKIN)))
                     .displayName(Text.translatable("itemgroup." + BetterPaleGarden.MOD_ID + "." + BetterPaleGarden.MOD_ID))
                     .entries((displayContext, entries) -> {
                         entries.add(BPGBlocks.WHITE_PUMPKIN);
                         entries.add(BPGBlocks.CARVED_WHITE_PUMPKIN);
+                        entries.add(BPGBlocks.SOUL_O_LANTERN);
                     })
                     .build()
     );

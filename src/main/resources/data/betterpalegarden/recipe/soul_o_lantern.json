@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": "betterpalegarden:carved_white_pumpkin",
+    "B": "minecraft:soul_torch"
+  },
+  "pattern": [
+    "A",
+    "B"
+  ],
+  "result": {
+    "count": 1,
+    "id": "betterpalegarden:soul_o_lantern"
+  }
+}

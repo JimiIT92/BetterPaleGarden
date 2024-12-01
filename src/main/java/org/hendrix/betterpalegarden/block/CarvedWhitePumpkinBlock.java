@@ -10,7 +10,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.passive.IronGolemEntity;
-import net.minecraft.entity.passive.SnowGolemEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.predicate.block.BlockStatePredicate;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -23,6 +22,7 @@ import net.minecraft.world.WorldEvents;
 import net.minecraft.world.WorldView;
 import org.hendrix.betterpalegarden.core.BPGBlocks;
 import org.hendrix.betterpalegarden.core.BPGEntities;
+import org.hendrix.betterpalegarden.entity.WhitePumpkinSnowGolemEntity;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Predicate;
@@ -113,7 +113,7 @@ public final class CarvedWhitePumpkinBlock extends HorizontalFacingBlock {
     private void trySpawnEntity(final World world, final BlockPos pos) {
         final BlockPattern.Result snowGolemPatternResult = this.getSnowGolemPattern().searchAround(world, pos);
         if (snowGolemPatternResult != null) {
-            final SnowGolemEntity snowGolemEntity = BPGEntities.SNOW_GOLEM.create(world, SpawnReason.TRIGGERED);
+            final WhitePumpkinSnowGolemEntity snowGolemEntity = BPGEntities.SNOW_GOLEM.create(world, SpawnReason.TRIGGERED);
             if (snowGolemEntity != null) {
                 spawnEntity(world, snowGolemPatternResult, snowGolemEntity, snowGolemPatternResult.translate(0, 2, 0).getBlockPos());
             }

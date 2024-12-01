@@ -17,6 +17,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
+import org.hendrix.betterpalegarden.core.BPGBlocks;
 
 /**
  * Implementation class for a {@link Block White Pumpkin Block}
@@ -60,7 +61,7 @@ public final class WhitePumpkinBlock extends Block {
         final Direction hitSide = hit.getSide();
         final Direction pumpkinFaceDirection = hitSide.getAxis() == Direction.Axis.Y ? player.getHorizontalFacing().getOpposite() : hitSide;
         world.playSound(null, pos, SoundEvents.BLOCK_PUMPKIN_CARVE, SoundCategory.BLOCKS, 1.0F, 1.0F);
-        world.setBlockState(pos, Blocks.CARVED_PUMPKIN.getDefaultState().with(CarvedPumpkinBlock.FACING, pumpkinFaceDirection), Block.NOTIFY_ALL_AND_REDRAW);
+        world.setBlockState(pos, BPGBlocks.CARVED_WHITE_PUMPKIN.getDefaultState().with(CarvedPumpkinBlock.FACING, pumpkinFaceDirection), Block.NOTIFY_ALL_AND_REDRAW);
         final ItemEntity itemEntity = new ItemEntity(
                 world,
                 (double)pos.getX() + 0.5 + (double)pumpkinFaceDirection.getOffsetX() * 0.65,

@@ -25,6 +25,7 @@ public final class BPGItemGroups {
                     .displayName(Text.translatable("itemgroup." + BetterPaleGarden.MOD_ID + "." + BetterPaleGarden.MOD_ID))
                     .entries((displayContext, entries) -> {
                         entries.add(BPGBlocks.WHITE_PUMPKIN);
+                        entries.add(BPGBlocks.CARVED_WHITE_PUMPKIN);
                     })
                     .build()
     );

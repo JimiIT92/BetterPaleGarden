@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "betterpalegarden:block/carved_white_pumpkin",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "betterpalegarden:block/carved_white_pumpkin"
+    },
+    "facing=south": {
+      "model": "betterpalegarden:block/carved_white_pumpkin",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "betterpalegarden:block/carved_white_pumpkin",
+      "y": 270
+    }
+  }
+}

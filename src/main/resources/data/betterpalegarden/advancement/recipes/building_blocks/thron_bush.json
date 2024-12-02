@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cactus": {
+      "conditions": {
+        "items": [
+          {
+            "items": "betterpalegarden:cactus"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_pale_hanging_moss": {
+      "conditions": {
+        "items": [
+          {
+            "items": "betterpalegarden:pale_hanging_moss"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "betterpalegarden:thorn_bush"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cactus",
+      "has_pale_hanging_moss"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "betterpalegarden:thorn_bush"
+    ]
+  }
+}

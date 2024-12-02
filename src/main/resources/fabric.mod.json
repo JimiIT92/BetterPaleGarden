@@ -21,6 +21,9 @@
       "org.hendrix.betterpalegarden.BetterPaleGarden"
     ]
   },
+  "mixins": [
+    "${mod_id}.mixins.json"
+  ],
   "depends": {
     "fabricloader": ">=${loader_version}",
     "fabric": "*",

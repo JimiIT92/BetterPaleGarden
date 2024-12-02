@@ -7,7 +7,6 @@ import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryEntryLookup;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
-import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
@@ -64,7 +63,7 @@ public final class BPGPlacedFeatures {
      * Add the {@link PlacedFeature Placed Features} to the {@link Biome Biomes}
      */
     public static void addToBiomes() {
-        final Predicate<BiomeSelectionContext> paleGardenBiomeSelector = BiomeSelectors.includeByKey(RegistryKey.of(RegistryKeys.BIOME, Identifier.of("pale_garden")));
+        final Predicate<BiomeSelectionContext> paleGardenBiomeSelector = BiomeSelectors.includeByKey(IdentifierUtils.paleGardenRegistryKey());
         BiomeModifications.addFeature(
                 paleGardenBiomeSelector,
                 GenerationStep.Feature.VEGETAL_DECORATION,

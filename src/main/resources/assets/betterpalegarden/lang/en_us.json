@@ -7,7 +7,9 @@
   "block.betterpalegarden.waxed_creaking_heart": "Waxed Creaking Heart",
   "block.betterpalegarden.cracked_resin_bricks": "Cracked Resin Bricks",
   "block.betterpalegarden.mossy_resin_bricks": "Mossy Resin Bricks",
+  "item.betterpalegarden.creaked_armor_trim_smithing_template": "Creaked Armor Trim Smithing Template",
   "item.betterpalegarden.snow_golem_spawn_egg": "White Pumpkin Snow Golem Spawn Egg",
   "death.attack.thornBush": "%1$s was poked to death by a thorn bush",
-  "death.attack.thornBush.player": "%1$s was poked to death by a thorn bush while trying to escape %2$s"
+  "death.attack.thornBush.player": "%1$s was poked to death by a thorn bush while trying to escape %2$s",
+  "trim_pattern.betterpalegarden.creaked": "Creaked Armor Trim"
 }

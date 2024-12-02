@@ -7,6 +7,7 @@ import net.minecraft.component.type.EquippableComponent;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.SmithingTemplateItem;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -26,6 +27,7 @@ public final class BPGItems {
     //#region Items
 
     public static final Item SNOW_GOLEM_SPAWN_EGG = registerItem("snow_golem_spawn_egg", Suppliers.memoize(() -> new SpawnEggItem(BPGEntities.SNOW_GOLEM, 14283506, 8496292, new Item.Settings().registryKey(RegistryKey.of(RegistryKeys.ITEM, IdentifierUtils.modIdentifier("snow_golem_spawn_egg"))).useItemPrefixedTranslationKey())));
+    public static final Item CREAKED_ARMOR_TRIM_SMITHING_TEMPLATE = registerItem("creaked_armor_trim_smithing_template", Suppliers.memoize(() -> SmithingTemplateItem.of(new Item.Settings().registryKey(RegistryKey.of(RegistryKeys.ITEM, IdentifierUtils.modIdentifier("creaked_armor_trim_smithing_template"))))));
 
     //#endregion
 

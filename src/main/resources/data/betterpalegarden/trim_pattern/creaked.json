@@ -1,0 +1,8 @@
+{
+  "asset_id": "betterpalegarden:creaked",
+  "decal": false,
+  "description": {
+    "translate": "trim_pattern.betterpalegarden.creaked"
+  },
+  "template_item": "betterpalegarden:creaked_armor_trim_smithing_template"
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:creaking_heart",
+    "minecraft:honeycomb"
+  ],
+  "result": {
+    "count": 1,
+    "id": "betterpalegarden:waxed_creaking_heart"
+  }
+}

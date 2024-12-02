@@ -20,6 +20,7 @@ import net.minecraft.world.event.GameEvent;
 import org.hendrix.betterpalegarden.BetterPaleGarden;
 import org.hendrix.betterpalegarden.block.CarvedWhitePumpkinBlock;
 import org.hendrix.betterpalegarden.block.ThornBushBlock;
+import org.hendrix.betterpalegarden.block.WaxedCreakingHeartBlock;
 import org.hendrix.betterpalegarden.block.WhitePumpkinBlock;
 import org.hendrix.betterpalegarden.utils.IdentifierUtils;
 
@@ -76,6 +77,15 @@ public final class BPGBlocks {
                     .registryKey(RegistryKey.of(RegistryKeys.BLOCK, IdentifierUtils.modIdentifier("thorn_bush")))
     )));
 
+    public static final Block WAXED_CREAKING_HEART = registerBlock("waxed_creaking_heart", Suppliers.memoize(() -> new WaxedCreakingHeartBlock(
+            AbstractBlock.Settings.create()
+                    .mapColor(MapColor.ORANGE)
+                    .instrument(NoteBlockInstrument.BASEDRUM)
+                    .strength(5.0F)
+                    .sounds(BlockSoundGroup.CREAKING_HEART)
+                    .registryKey(RegistryKey.of(RegistryKeys.BLOCK, IdentifierUtils.modIdentifier("waxed_creaking_heart")))
+    )));
+
     //#endregion
 
     /**
@@ -86,8 +96,20 @@ public final class BPGBlocks {
      * @return The {@link Block registered Block}
      */
     private static Block registerBlock(final String name, final Supplier<Block> blockSupplier) {
+        final Block block = registerBlockWithoutBlockItem(name, blockSupplier);
+        BPGItems.registerBlockItem(IdentifierUtils.modIdentifier(name), blockSupplier);
+        return block;
+    }
+
+    /**
+     * Register a {@link Block Block}
+     *
+     * @param name The {@link String Block name}
+     * @param blockSupplier The {@link Supplier<Block> Block Supplier}
+     * @return The {@link Block registered Block}
+     */
+    private static Block registerBlockWithoutBlockItem(final String name, final Supplier<Block> blockSupplier) {
         final Identifier identifier = IdentifierUtils.modIdentifier(name);
-        BPGItems.registerBlockItem(identifier, blockSupplier);
         return Registry.register(Registries.BLOCK, identifier, blockSupplier.get());
     }
 

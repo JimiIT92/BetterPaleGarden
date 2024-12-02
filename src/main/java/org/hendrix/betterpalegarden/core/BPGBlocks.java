@@ -86,6 +86,24 @@ public final class BPGBlocks {
                     .registryKey(RegistryKey.of(RegistryKeys.BLOCK, IdentifierUtils.modIdentifier("waxed_creaking_heart")))
     )));
 
+    public static final Block CRACKED_RESIN_BRICKS = registerBlock("cracked_resin_bricks", Suppliers.memoize(() -> new Block(
+            AbstractBlock.Settings.create()
+                    .mapColor(MapColor.ORANGE)
+                    .instrument(NoteBlockInstrument.BASEDRUM)
+                    .requiresTool()
+                    .strength(2.0F, 6.0F)
+                    .registryKey(RegistryKey.of(RegistryKeys.BLOCK, IdentifierUtils.modIdentifier("cracked_resin_bricks")))
+    )));
+
+    public static final Block MOSSY_RESIN_BRICKS = registerBlock("mossy_resin_bricks", Suppliers.memoize(() -> new Block(
+            AbstractBlock.Settings.create()
+                    .mapColor(MapColor.ORANGE)
+                    .instrument(NoteBlockInstrument.BASEDRUM)
+                    .requiresTool()
+                    .strength(2.0F, 6.0F)
+                    .registryKey(RegistryKey.of(RegistryKeys.BLOCK, IdentifierUtils.modIdentifier("mossy_resin_bricks")))
+    )));
+
     //#endregion
 
     /**

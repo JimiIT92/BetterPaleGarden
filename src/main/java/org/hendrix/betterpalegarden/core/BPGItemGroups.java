@@ -29,6 +29,8 @@ public final class BPGItemGroups {
                         entries.add(BPGBlocks.SOUL_O_LANTERN);
                         entries.add(BPGBlocks.THORN_BUSH);
                         entries.add(BPGBlocks.WAXED_CREAKING_HEART);
+                        entries.add(BPGBlocks.CRACKED_RESIN_BRICKS);
+                        entries.add(BPGBlocks.MOSSY_RESIN_BRICKS);
                         entries.add(BPGItems.SNOW_GOLEM_SPAWN_EGG);
                     })
                     .build()

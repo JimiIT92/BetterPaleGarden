@@ -49,7 +49,7 @@ public final class BetterPaleGarden implements ModInitializer {
                 if(!playerEntity.isInCreativeMode()) {
                     itemStack.decrement(1);
                 }
-                final BlockState state = BPGBlocks.WAXED_CREAKING_HEART.getDefaultState().with(CreakingHeartBlock.AXIS, clickedBlockState.get(CreakingHeartBlock.AXIS)).with(CreakingHeartBlock.CREAKING, clickedBlockState.get(CreakingHeartBlock.CREAKING));
+                final BlockState state = BPGBlocks.WAXED_CREAKING_HEART.getDefaultState().with(CreakingHeartBlock.AXIS, clickedBlockState.get(CreakingHeartBlock.AXIS)).with(CreakingHeartBlock.ACTIVE, clickedBlockState.get(CreakingHeartBlock.ACTIVE)).with(CreakingHeartBlock.NATURAL, clickedBlockState.get(CreakingHeartBlock.NATURAL));
                 world.setBlockState(pos, state, Block.NOTIFY_ALL_AND_REDRAW);
                 world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(playerEntity, state));
                 world.syncWorldEvent(playerEntity, WorldEvents.BLOCK_WAXED, pos, 0);

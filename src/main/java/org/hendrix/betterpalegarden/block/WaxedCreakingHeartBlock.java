@@ -38,7 +38,7 @@ public class WaxedCreakingHeartBlock extends Block {
      */
     public WaxedCreakingHeartBlock(final Settings settings) {
         super(settings);
-        this.setDefaultState(this.getDefaultState().with(CreakingHeartBlock.AXIS, Direction.Axis.Y).with(CreakingHeartBlock.CREAKING, CreakingHeartBlock.Creaking.DISABLED));
+        this.setDefaultState(this.getDefaultState().with(CreakingHeartBlock.AXIS, Direction.Axis.Y).with(CreakingHeartBlock.ACTIVE, false).with(CreakingHeartBlock.NATURAL, false));
     }
 
     /**
@@ -82,19 +82,7 @@ public class WaxedCreakingHeartBlock extends Block {
      * @return The {@link BlockState unwaxed Block State}
      */
     private BlockState getUnwaxedBlockState(final BlockState state, final World world, final BlockPos pos) {
-        return Blocks.CREAKING_HEART.getDefaultState().with(CreakingHeartBlock.AXIS, state.get(CreakingHeartBlock.AXIS)).with(CreakingHeartBlock.CREAKING, getCreakingState(state, world, pos));
-    }
-
-    /**
-     * Get the {@link CreakingHeartBlock.Creaking Creaking State}
-     *
-     * @param state The {@link BlockState current Block State}
-     * @param world The {@link World World reference}
-     * @param pos The {@link BlockPos current Block Pos}
-     * @return {@link CreakingHeartBlock.Creaking Creaking State}
-     */
-    private CreakingHeartBlock.Creaking getCreakingState(final BlockState state, final World world, final BlockPos pos) {
-        return CreakingHeartBlock.shouldBeEnabled(state, world, pos) ? CreakingHeartBlock.Creaking.ACTIVE : CreakingHeartBlock.Creaking.DISABLED;
+        return Blocks.CREAKING_HEART.getDefaultState().with(CreakingHeartBlock.AXIS, state.get(CreakingHeartBlock.AXIS)).with(CreakingHeartBlock.ACTIVE, CreakingHeartBlock.shouldBeEnabled(state, world, pos)).with(CreakingHeartBlock.NATURAL, state.get(CreakingHeartBlock.NATURAL));
     }
 
     /**
@@ -116,7 +104,7 @@ public class WaxedCreakingHeartBlock extends Block {
      */
     @Override
     protected void appendProperties(final StateManager.Builder<Block, BlockState> stateBuilder) {
-        stateBuilder.add(CreakingHeartBlock.AXIS, CreakingHeartBlock.CREAKING);
+        stateBuilder.add(CreakingHeartBlock.AXIS, CreakingHeartBlock.ACTIVE, CreakingHeartBlock.NATURAL);
     }
 
     /**

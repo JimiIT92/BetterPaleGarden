@@ -18,7 +18,7 @@ If applicable, add screenshots to help explain your problem.
 
 **Versions (please complete the following information)**
 - Minecraft: [e.g. 1.21.4]
-- Fabric: [e.g. 0.96.11]
+- Fabric: [e.g. 0.110.5]
 - BetterPaleGarden: [e.g. 1.0]
 
 **Additional context**

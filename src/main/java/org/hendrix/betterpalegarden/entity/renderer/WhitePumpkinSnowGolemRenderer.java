@@ -3,19 +3,21 @@ package org.hendrix.betterpalegarden.entity.renderer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.entity.EntityRendererFactory;
-import net.minecraft.client.render.entity.SnowGolemEntityRenderer;
-import net.minecraft.client.render.entity.state.LivingEntityRenderState;
+import net.minecraft.client.render.entity.MobEntityRenderer;
+import net.minecraft.client.render.entity.model.EntityModelLayers;
+import net.minecraft.client.render.entity.model.SnowGolemEntityModel;
+import net.minecraft.client.render.entity.state.SnowGolemEntityRenderState;
 import net.minecraft.entity.passive.SnowGolemEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ModelTransformationMode;
+import net.minecraft.util.Identifier;
 import org.hendrix.betterpalegarden.block.WhitePumpkinBlock;
-import org.hendrix.betterpalegarden.core.BPGBlocks;
 
 /**
  * Renderer class for a {@link SnowGolemEntity Snow Golem} wearing a {@link WhitePumpkinBlock White Pumpkin Block}
  */
 @Environment(EnvType.CLIENT)
-public final class WhitePumpkinSnowGolemRenderer extends SnowGolemEntityRenderer {
+public final class WhitePumpkinSnowGolemRenderer extends MobEntityRenderer<SnowGolemEntity, SnowGolemEntityRenderState, SnowGolemEntityModel> {
+
+    private static final Identifier TEXTURE = Identifier.ofVanilla("textures/entity/snow_golem.png");
 
     /**
      * Constructor. Set the {@link EntityRendererFactory.Context Renderer Context}
@@ -23,21 +25,39 @@ public final class WhitePumpkinSnowGolemRenderer extends SnowGolemEntityRenderer
      * @param context The {@link EntityRendererFactory.Context Renderer Context}
      */
     public WhitePumpkinSnowGolemRenderer(final EntityRendererFactory.Context context) {
-        super(context);
+        super(context, new SnowGolemEntityModel(context.getPart(EntityModelLayers.SNOW_GOLEM)), 0.5F);
+        this.addFeature(new SnowGolemWhitePumpkinFeatureRenderer(this, context.getBlockRenderManager()));
     }
 
     /**
-     * Render the {@link WhitePumpkinBlock White Pumpkin Block} on the {@link SnowGolemEntity Snow Golem} head
+     * Get the {@link Identifier Entity Texture Identifier}
      *
-     * @param snowGolemEntity The {@link EntityRendererFactory.Context Renderer Context}
-     * @param livingEntityRenderState The {@link LivingEntityRenderState Living Entity Render State}
-     * @param tickDelta The {@link Float delta amount of ticks}
+     * @param snowGolemEntityRenderState The {@link SnowGolemEntityRenderState Snow Golem Entity Render State}
+     * @return The {@link #TEXTURE Entity Texture Identifier}
      */
-    @Override
-    public void updateRenderState(final SnowGolemEntity snowGolemEntity, final LivingEntityRenderState livingEntityRenderState, final float tickDelta) {
-        super.updateRenderState(snowGolemEntity, livingEntityRenderState, tickDelta);
-        livingEntityRenderState.equippedHeadStack = snowGolemEntity.hasPumpkin() ? new ItemStack(BPGBlocks.CARVED_WHITE_PUMPKIN) : ItemStack.EMPTY;
-        livingEntityRenderState.equippedHeadItemModel = this.itemRenderer.getModel(livingEntityRenderState.equippedHeadStack, snowGolemEntity, ModelTransformationMode.HEAD);
+    public Identifier getTexture(final SnowGolemEntityRenderState snowGolemEntityRenderState) {
+        return TEXTURE;
+    }
+
+    /**
+     * Get the {@link SnowGolemEntityRenderState Entity Render State}
+     *
+     * @return The {@link SnowGolemEntityRenderState Entity Render State}
+     */
+    public SnowGolemEntityRenderState createRenderState() {
+        return new SnowGolemEntityRenderState();
+    }
+
+    /**
+     * Render the Entity
+     *
+     * @param snowGolemEntity The {@link SnowGolemEntity Snow Golem Entity}
+     * @param snowGolemEntityRenderState The {@link SnowGolemEntityRenderState Entity Render State}
+     * @param partialTicks The {@link Float partial ticks amount}
+     */
+    public void updateRenderState(SnowGolemEntity snowGolemEntity, SnowGolemEntityRenderState snowGolemEntityRenderState, float partialTicks) {
+        super.updateRenderState(snowGolemEntity, snowGolemEntityRenderState, partialTicks);
+        snowGolemEntityRenderState.hasPumpkin = snowGolemEntity.hasPumpkin();
     }
 
 }

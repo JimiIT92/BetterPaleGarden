@@ -9,7 +9,7 @@ import net.minecraft.client.render.WorldRenderer;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
-import org.hendrix.betterpalegarden.utils.IdentifierUtils;
+import net.minecraft.world.biome.BiomeKeys;
 import org.joml.Vector4f;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -65,7 +65,7 @@ public final class FogMixin {
         }
 
         final Optional<RegistryKey<Biome>> biomeKey = world.getBiome(player.getBlockPos()).getKey();
-        if(biomeKey.isPresent() && biomeKey.get().equals(IdentifierUtils.paleGardenRegistryKey())) {
+        if(biomeKey.isPresent() && biomeKey.get().equals(BiomeKeys.PALE_GARDEN)) {
             if(fogAlpha < maxFogAlpha) {
                 fogAlpha += fogAlphaScaling;
             }
@@ -86,7 +86,7 @@ public final class FogMixin {
      */
     @Unique
     private Fog getPaleGardenFog(final MinecraftClient client) {
-        return BackgroundRenderer.applyFog(client.gameRenderer.getCamera(), BackgroundRenderer.FogType.FOG_TERRAIN, new Vector4f(fogColor, fogColor, fogColor, fogAlpha), 24, true, client.getRenderTickCounter().getTickDelta(false));
+        return BackgroundRenderer.applyFog(client.gameRenderer.getCamera(), BackgroundRenderer.FogType.FOG_TERRAIN, new Vector4f(fogColor, fogColor, fogColor, fogAlpha), 32, true, client.getRenderTickCounter().getTickDelta(false));
     }
 
 }

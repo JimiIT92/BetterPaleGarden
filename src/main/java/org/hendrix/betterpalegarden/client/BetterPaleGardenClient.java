@@ -15,6 +15,8 @@ import org.hendrix.betterpalegarden.core.BPGEntities;
 import org.hendrix.betterpalegarden.entity.renderer.WhitePumpkinSnowGolemRenderer;
 import org.hendrix.betterpalegarden.utils.IdentifierUtils;
 
+import java.util.Arrays;
+
 /**
  * {@link BetterPaleGarden Hendrix's Better Pale Garden} {@link ClientModInitializer Client initializer}
  */
@@ -28,8 +30,11 @@ public final class BetterPaleGardenClient implements ClientModInitializer {
      */
     @Override
     public void onInitializeClient() {
-        BlockRenderLayerMap.INSTANCE.putBlock(BPGBlocks.THORN_BUSH, RenderLayer.getCutoutMipped());
-        BlockRenderLayerMap.INSTANCE.putBlock(BPGBlocks.CHRYSANTHEMUM, RenderLayer.getCutoutMipped());
+        Arrays.asList(
+                BPGBlocks.THORN_BUSH,
+                BPGBlocks.CHRYSANTHEMUM,
+                BPGBlocks.POTTED_CHRYSANTHEMUM
+        ).forEach(block -> BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutoutMipped()));
 
         EntityRendererRegistry.register(BPGEntities.SNOW_GOLEM, WhitePumpkinSnowGolemRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(MODEL_SNOW_GOLEM_LAYER, SnowGolemEntityModel::getTexturedModelData);

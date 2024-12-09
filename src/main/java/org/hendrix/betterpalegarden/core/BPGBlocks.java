@@ -1,6 +1,7 @@
 package org.hendrix.betterpalegarden.core;
 
 import com.google.common.base.Suppliers;
+import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.minecraft.block.*;
 import net.minecraft.block.dispenser.EquippableDispenserBehavior;
 import net.minecraft.block.dispenser.FallibleItemDispenserBehavior;
@@ -162,6 +163,7 @@ public final class BPGBlocks {
      */
     public static void register() {
         registerDispenseBehaviors();
+        registerCompostableBlocks();
     }
 
     /**
@@ -194,6 +196,16 @@ public final class BPGBlocks {
                 return stack;
             }
         });
+    }
+
+    /**
+     * Register {@link ComposterBlock compostable} {@link Block Blocks}
+     */
+    public static void registerCompostableBlocks() {
+        CompostingChanceRegistry.INSTANCE.add(THORN_BUSH, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(WHITE_PUMPKIN, 0.65F);
+        CompostingChanceRegistry.INSTANCE.add(CARVED_WHITE_PUMPKIN, 0.65F);
+        CompostingChanceRegistry.INSTANCE.add(CHRYSANTHEMUM, 0.65F);
     }
 
 }

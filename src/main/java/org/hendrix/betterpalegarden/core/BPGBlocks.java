@@ -110,7 +110,7 @@ public final class BPGBlocks {
                     .allowsSpawning(Blocks::always)
                     .pistonBehavior(PistonBehavior.DESTROY)
                     .ticksRandomly()
-                    .luminance(state -> state.get(GlowingPumpkinBlock.OPEN) ? 10 : 0)
+                    .luminance(state -> state.get(GlowingPumpkinBlock.OPEN) ? 3 : 0)
                     .registryKey(RegistryKey.of(RegistryKeys.BLOCK, IdentifierUtils.modIdentifier("glowing_pumpkin")))
     )));
 

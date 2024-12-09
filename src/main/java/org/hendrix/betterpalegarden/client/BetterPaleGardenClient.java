@@ -32,6 +32,7 @@ public final class BetterPaleGardenClient implements ClientModInitializer {
     public void onInitializeClient() {
         Arrays.asList(
                 BPGBlocks.THORN_BUSH,
+                BPGBlocks.GLOWING_PUMPKIN,
                 BPGBlocks.CHRYSANTHEMUM,
                 BPGBlocks.POTTED_CHRYSANTHEMUM
         ).forEach(block -> BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutoutMipped()));

@@ -1,8 +1,31 @@
 {
-  "parent": "minecraft:block/orientable",
+  "parent": "block/block",
   "textures": {
-    "front": "betterpalegarden:block/open_glowing_pumpkin",
+    "overlay": "betterpalegarden:block/open_glowing_pumpkin_eyes",
     "side": "betterpalegarden:block/white_pumpkin_side",
-    "top": "betterpalegarden:block/white_pumpkin_top"
-  }
+    "top": "betterpalegarden:block/white_pumpkin_top",
+    "particle": "#side"
+  },
+  "elements": [
+    {
+      "from": [ 0, 0, 0 ],
+      "to": [ 16, 16, 16 ],
+      "faces": {
+        "down":  { "texture": "#top", "cullface": "down" },
+        "up":    { "texture": "#top", "cullface": "up" },
+        "north": { "texture": "#side", "cullface": "north" },
+        "south": { "texture": "#side", "cullface": "south" },
+        "west":  { "texture": "#side", "cullface": "west" },
+        "east":  { "texture": "#side", "cullface": "east" }
+      }
+    },
+    {
+      "from": [ 0, 0, 0 ],
+      "to": [ 16, 16, 16 ],
+      "light_emission": 15,
+      "faces": {
+        "north": { "texture": "#overlay", "uv": [0, 0, 16, 16], "cullface": "north" }
+      }
+    }
+  ]
 }

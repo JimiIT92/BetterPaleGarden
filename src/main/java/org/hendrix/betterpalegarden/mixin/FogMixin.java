@@ -7,17 +7,15 @@ import net.minecraft.client.render.BackgroundRenderer;
 import net.minecraft.client.render.Fog;
 import net.minecraft.client.render.WorldRenderer;
 import net.minecraft.client.world.ClientWorld;
-import net.minecraft.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeKeys;
+import org.hendrix.betterpalegarden.utils.BiomeUtils;
+import org.jetbrains.annotations.Nullable;
 import org.joml.Vector4f;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
-
-import java.util.Optional;
 
 /**
  * Mixin for the {@link WorldRenderer World Renderer class}.
@@ -27,6 +25,7 @@ import java.util.Optional;
 public final class FogMixin {
 
     @Shadow @Final private MinecraftClient client;
+    @Shadow @Nullable private ClientWorld world;
     /**
      * The current {@link Float Fog alpha}
      */
@@ -64,8 +63,7 @@ public final class FogMixin {
             return fog;
         }
 
-        final Optional<RegistryKey<Biome>> biomeKey = world.getBiome(player.getBlockPos()).getKey();
-        if(biomeKey.isPresent() && biomeKey.get().equals(BiomeKeys.PALE_GARDEN)) {
+        if(BiomeUtils.isInPaleGarden(world, player.getBlockPos())) {
             if(fogAlpha < maxFogAlpha) {
                 fogAlpha += fogAlphaScaling;
             }

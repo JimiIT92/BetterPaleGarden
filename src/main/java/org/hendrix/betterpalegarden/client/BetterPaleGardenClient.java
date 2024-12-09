@@ -28,7 +28,8 @@ public final class BetterPaleGardenClient implements ClientModInitializer {
      */
     @Override
     public void onInitializeClient() {
-        BlockRenderLayerMap.INSTANCE.putBlock(BPGBlocks.THORN_BUSH, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BPGBlocks.THORN_BUSH, RenderLayer.getCutoutMipped());
+        BlockRenderLayerMap.INSTANCE.putBlock(BPGBlocks.CHRYSANTHEMUM, RenderLayer.getCutoutMipped());
 
         EntityRendererRegistry.register(BPGEntities.SNOW_GOLEM, WhitePumpkinSnowGolemRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(MODEL_SNOW_GOLEM_LAYER, SnowGolemEntityModel::getTexturedModelData);

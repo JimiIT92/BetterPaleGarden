@@ -18,10 +18,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import org.hendrix.betterpalegarden.BetterPaleGarden;
-import org.hendrix.betterpalegarden.block.CarvedWhitePumpkinBlock;
-import org.hendrix.betterpalegarden.block.ThornBushBlock;
-import org.hendrix.betterpalegarden.block.WaxedCreakingHeartBlock;
-import org.hendrix.betterpalegarden.block.WhitePumpkinBlock;
+import org.hendrix.betterpalegarden.block.*;
 import org.hendrix.betterpalegarden.utils.IdentifierUtils;
 
 import java.util.function.Supplier;
@@ -102,6 +99,35 @@ public final class BPGBlocks {
                     .requiresTool()
                     .strength(2.0F, 6.0F)
                     .registryKey(RegistryKey.of(RegistryKeys.BLOCK, IdentifierUtils.modIdentifier("mossy_resin_bricks")))
+    )));
+
+    public static final Block GLOWING_PUMPKIN = registerBlock("glowing_pumpkin", Suppliers.memoize(() -> new GlowingPumpkinBlock(
+            AbstractBlock.Settings.create()
+                    .mapColor(MapColor.WHITE)
+                    .strength(1.0F)
+                    .sounds(BlockSoundGroup.WOOD)
+                    .allowsSpawning(Blocks::always)
+                    .pistonBehavior(PistonBehavior.DESTROY)
+                    .ticksRandomly()
+                    .luminance(state -> state.get(GlowingPumpkinBlock.OPEN) ? 10 : 0)
+                    .registryKey(RegistryKey.of(RegistryKeys.BLOCK, IdentifierUtils.modIdentifier("glowing_pumpkin")))
+    )));
+
+    public static final Block CHRYSANTHEMUM = registerBlock("chrysanthemum", Suppliers.memoize(() -> new TallFlowerBlock(
+            AbstractBlock.Settings.create()
+                    .mapColor(MapColor.PALE_PURPLE)
+                    .noCollision()
+                    .breakInstantly()
+                    .sounds(BlockSoundGroup.GRASS)
+                    .offset(AbstractBlock.OffsetType.XZ)
+                    .burnable()
+                    .pistonBehavior(PistonBehavior.DESTROY)
+                    .registryKey(RegistryKey.of(RegistryKeys.BLOCK, IdentifierUtils.modIdentifier("chrysanthemum")))
+    )));
+
+    public static final Block POTTED_CHRYSANTHEMUM = registerBlock("potted_chrysanthemum", Suppliers.memoize(() -> new FlowerPotBlock(
+            CHRYSANTHEMUM,
+            Blocks.createFlowerPotSettings().registryKey(RegistryKey.of(RegistryKeys.BLOCK, IdentifierUtils.modIdentifier("potted_chrysanthemum")))
     )));
 
     //#endregion

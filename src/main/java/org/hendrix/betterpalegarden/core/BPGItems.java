@@ -44,6 +44,11 @@ public final class BPGItems {
                     DataComponentTypes.EQUIPPABLE,
                     EquippableComponent.builder(EquipmentSlot.HEAD).swappable(false).cameraOverlay(Identifier.ofVanilla("misc/pumpkinblur")).build()
             );
+        } else if(identifier.getPath().equals("glowing_pumpkin")) {
+            itemSettings = itemSettings.component(
+                    DataComponentTypes.EQUIPPABLE,
+                    EquippableComponent.builder(EquipmentSlot.HEAD).swappable(false).cameraOverlay(IdentifierUtils.modIdentifier("misc/glowingpumpkinblur")).build()
+            );
         }
 
         Registry.register(Registries.ITEM, identifier, new BlockItem(blockSupplier.get(), itemSettings));

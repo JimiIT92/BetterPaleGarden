@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "betterpalegarden:cactus"
+            "items": "minecraft:cactus"
           }
         ]
       },
@@ -15,7 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": "betterpalegarden:pale_hanging_moss"
+            "items": "minecraft:pale_hanging_moss"
           }
         ]
       },

@@ -22,6 +22,6 @@ public final class BPGConfig implements ConfigData {
      */
     @ConfigEntry.Gui.Tooltip
     @ConfigEntry.BoundedDiscrete(min = 1L, max = BetterPaleGarden.MAX_FOG_THICKNESS)
-    public long FOG_THICKNESS = 96L;
+    public long FOG_THICKNESS = BetterPaleGarden.DEFAULT_FOG_THICKNESS;
 
 }

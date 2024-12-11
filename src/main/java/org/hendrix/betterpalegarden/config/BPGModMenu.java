@@ -20,7 +20,7 @@ public final class BPGModMenu implements ModMenuApi {
      */
     @Override
     public ConfigScreenFactory<?> getModConfigScreenFactory() {
-        return parent -> AutoConfig.getConfigScreen(BPGConfig.class, parent).get();
+        return BetterPaleGarden.isClothConfigInstalled() ? parent -> AutoConfig.getConfigScreen(BPGConfig.class, parent).get() : null;
     }
 
 }

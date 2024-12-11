@@ -64,7 +64,7 @@ public final class FogMixin {
      */
     @ModifyExpressionValue(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/BackgroundRenderer;applyFog(Lnet/minecraft/client/render/Camera;Lnet/minecraft/client/render/BackgroundRenderer$FogType;Lorg/joml/Vector4f;FZF)Lnet/minecraft/client/render/Fog;", ordinal = 0))
     private Fog applyFog(final Fog fog) {
-        if(!BetterPaleGarden.config().ENABLE_FOG) {
+        if(BetterPaleGarden.isClothConfigInstalled() && !BetterPaleGarden.config().ENABLE_FOG) {
             return fog;
         }
 
@@ -102,7 +102,7 @@ public final class FogMixin {
                 client.gameRenderer.getCamera(),
                 BackgroundRenderer.FogType.FOG_TERRAIN,
                 Objects.requireNonNull(world).isNight() ? new Vector4f(fog.red(), fog.green(), fog.blue(), fogAlpha) : new Vector4f(fogColor, fogColor, fogColor, fogAlpha),
-                BetterPaleGarden.MAX_FOG_THICKNESS - BetterPaleGarden.config().FOG_THICKNESS,
+                BetterPaleGarden.MAX_FOG_THICKNESS - (BetterPaleGarden.isClothConfigInstalled() ? BetterPaleGarden.config().FOG_THICKNESS : BetterPaleGarden.DEFAULT_FOG_THICKNESS),
                 true,
                 client.getRenderTickCounter().getTickDelta(false)
         );

@@ -4,6 +4,7 @@ import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -41,6 +42,11 @@ public final class BetterPaleGarden implements ModInitializer {
     public static final long MAX_FOG_THICKNESS = 128L;
 
     /**
+     * The {@link Long default Fog Thickness}
+     */
+    public static final long DEFAULT_FOG_THICKNESS = 96L;
+
+    /**
      * Initialize the mod
      */
     @Override
@@ -72,8 +78,9 @@ public final class BetterPaleGarden implements ModInitializer {
             return ActionResult.PASS;
         });
 
-        AutoConfig.register(BPGConfig.class, GsonConfigSerializer::new);
-
+        if(isClothConfigInstalled()) {
+            AutoConfig.register(BPGConfig.class, GsonConfigSerializer::new);
+        }
     }
 
     /**
@@ -86,6 +93,15 @@ public final class BetterPaleGarden implements ModInitializer {
             CONFIG = AutoConfig.getConfigHolder(BPGConfig.class).getConfig();
         }
         return CONFIG;
+    }
+
+    /**
+     * Check if ClothConfig is installed
+     *
+     * @return {@link Boolean True if ClothConfig is installed}
+     */
+    public static boolean isClothConfigInstalled() {
+        return FabricLoader.getInstance().isModLoaded("cloth-config");
     }
 
 }

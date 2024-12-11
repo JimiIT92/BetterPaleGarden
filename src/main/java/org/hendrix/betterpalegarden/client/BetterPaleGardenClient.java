@@ -9,6 +9,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.client.render.entity.model.SnowGolemEntityModel;
+import net.minecraft.entity.passive.SnowGolemEntity;
 import org.hendrix.betterpalegarden.BetterPaleGarden;
 import org.hendrix.betterpalegarden.core.BPGBlocks;
 import org.hendrix.betterpalegarden.core.BPGEntities;
@@ -23,6 +24,9 @@ import java.util.Arrays;
 @Environment(EnvType.CLIENT)
 public final class BetterPaleGardenClient implements ClientModInitializer {
 
+    /**
+     * The {@link EntityModelLayer Entity Model Layer} for a {@link SnowGolemEntity White Pumpkin Snow Golem}
+     */
     public static final EntityModelLayer MODEL_SNOW_GOLEM_LAYER = new EntityModelLayer(IdentifierUtils.modIdentifier("snow_golem"), "main");
 
     /**

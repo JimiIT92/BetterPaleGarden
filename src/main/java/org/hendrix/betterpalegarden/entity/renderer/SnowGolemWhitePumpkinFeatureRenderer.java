@@ -23,7 +23,7 @@ import org.hendrix.betterpalegarden.core.BPGBlocks;
  * Implementation class for the {@link SnowGolemPumpkinFeatureRenderer Snow Golem White Pumpkin rendering}
  */
 @Environment(EnvType.CLIENT)
-public class SnowGolemWhitePumpkinFeatureRenderer extends FeatureRenderer<SnowGolemEntityRenderState, SnowGolemEntityModel> {
+public final class SnowGolemWhitePumpkinFeatureRenderer extends FeatureRenderer<SnowGolemEntityRenderState, SnowGolemEntityModel> {
 
     /**
      * The {@link BlockRenderManager Block Renderer Manager}
@@ -60,7 +60,7 @@ public class SnowGolemWhitePumpkinFeatureRenderer extends FeatureRenderer<SnowGo
                 matrixStack.translate(0.0F, -0.34375F, 0.0F);
                 matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(180.0F));
                 matrixStack.scale(scale, -scale, -scale);
-                final BlockState blockState = BPGBlocks.WHITE_PUMPKIN.getDefaultState();
+                final BlockState blockState = BPGBlocks.CARVED_WHITE_PUMPKIN.getDefaultState();
                 matrixStack.translate(-0.5F, -0.5F, -0.5F);
                 final VertexConsumer vertexConsumer = snowGolemEntityRenderState.hasOutline && snowGolemEntityRenderState.invisible ? vertexConsumerProvider.getBuffer(RenderLayer.getOutline(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE)) : vertexConsumerProvider.getBuffer(RenderLayers.getEntityBlockLayer(blockState));
                 this.blockRenderManager.getModelRenderer().render(matrixStack.peek(), vertexConsumer, blockState, this.blockRenderManager.getModel(blockState), 0.0F, 0.0F, 0.0F, light, LivingEntityRenderer.getOverlay(snowGolemEntityRenderState, 0.0F));

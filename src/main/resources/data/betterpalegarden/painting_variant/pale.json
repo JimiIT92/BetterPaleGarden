@@ -1,0 +1,9 @@
+{
+  "asset_id": "betterpalegarden:pale",
+  "height": 2,
+  "width": 2,
+  "title": {
+    "color": "yellow",
+    "translate": "painting.betterpalegarden.pale.title"
+  }
+}

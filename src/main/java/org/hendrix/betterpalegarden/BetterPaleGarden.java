@@ -36,6 +36,7 @@ public final class BetterPaleGarden implements ModInitializer {
         BPGItems.register();
         BPGBlocks.register();
         BPGEntities.register();
+        BPGPaintingVariants.register();
         BPGPlacedFeatures.addToBiomes();
 
         UseBlockCallback.EVENT.register((playerEntity, world, hand, blockHitResult) -> {

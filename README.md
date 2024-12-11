@@ -102,6 +102,18 @@ But if you **really** want to financially support the project (or just buy me so
 Any other website asking you money for this project is a scam, and you should immediately report it to your local authorities as well! 😡
 
 -------------------------
+### 📜 Credits
+
+- [TSEG6](https://github.com/TSEG6)
+- [CubbyBear00](https://github.com/CubbyBear00)
+- [JasonWorldYT](https://www.youtube.com/@JasonWorldYT)
+- [cybernerd9](https://www.reddit.com/user/cybernerd9/)
+- OliviaTheVampire
+- Franco227
+- Startraveler
+- Maya
+
+-------------------------
 ### 😁 Conclusion
 
 The Pale Garden is conceptually a cool biome, and with this mod we can make it even better!

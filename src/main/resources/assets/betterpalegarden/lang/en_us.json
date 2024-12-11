@@ -18,5 +18,9 @@
   "death.attack.thornBush.player": "%1$s was poked to death by a thorn bush while trying to escape %2$s",
   "trim_pattern.betterpalegarden.creaked": "Creaked Armor Trim",
   "advancements.betterpalegarden.story.wear_glowing_pumpkin.title": "I'm a Creak!",
-  "advancements.betterpalegarden.story.wear_glowing_pumpkin.description": "Wear a Glowing Pumpkin"
+  "advancements.betterpalegarden.story.wear_glowing_pumpkin.description": "Wear a Glowing Pumpkin",
+  "text.autoconfig.betterpalegarden.option.ENABLE_FOG": "Enable Fog",
+  "text.autoconfig.betterpalegarden.option.ENABLE_FOG.@Tooltip": "Whether Fog should be enabled in the Pale Garden",
+  "text.autoconfig.betterpalegarden.option.FOG_THICKNESS": "Fog Thickness",
+  "text.autoconfig.betterpalegarden.option.FOG_THICKNESS.@Tooltip": "How dense the Fog should be"
 }

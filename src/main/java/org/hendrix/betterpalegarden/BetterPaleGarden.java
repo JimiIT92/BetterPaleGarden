@@ -1,5 +1,7 @@
 package org.hendrix.betterpalegarden;
 
+import me.shedaniel.autoconfig.AutoConfig;
+import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.minecraft.advancement.criterion.Criteria;
@@ -14,6 +16,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.WorldEvents;
 import net.minecraft.world.event.GameEvent;
+import org.hendrix.betterpalegarden.config.BPGConfig;
 import org.hendrix.betterpalegarden.core.*;
 
 /**
@@ -26,6 +29,16 @@ public final class BetterPaleGarden implements ModInitializer {
      * The {@link String Mod ID}
      */
     public static final String MOD_ID = "betterpalegarden";
+
+    /**
+     * The {@link BPGConfig Mod Configuration}
+     */
+    private static BPGConfig CONFIG;
+
+    /**
+     * The {@link Long maximum Fog Thickness}
+     */
+    public static final long MAX_FOG_THICKNESS = 128L;
 
     /**
      * Initialize the mod
@@ -59,8 +72,20 @@ public final class BetterPaleGarden implements ModInitializer {
             return ActionResult.PASS;
         });
 
+        AutoConfig.register(BPGConfig.class, GsonConfigSerializer::new);
 
+    }
 
+    /**
+     * Get the {@link #CONFIG Mod Configuration}
+     *
+     * @return The {@link #CONFIG Mod Configuration}
+     */
+    public static BPGConfig config() {
+        if(CONFIG == null) {
+            CONFIG = AutoConfig.getConfigHolder(BPGConfig.class).getConfig();
+        }
+        return CONFIG;
     }
 
 }

@@ -4,11 +4,9 @@ import com.google.common.base.Suppliers;
 import net.minecraft.block.Block;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.EquippableComponent;
+import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.SmithingTemplateItem;
-import net.minecraft.item.SpawnEggItem;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -28,6 +26,7 @@ public final class BPGItems {
 
     public static final Item SNOW_GOLEM_SPAWN_EGG = registerItem("snow_golem_spawn_egg", Suppliers.memoize(() -> new SpawnEggItem(BPGEntities.SNOW_GOLEM, new Item.Settings().registryKey(RegistryKey.of(RegistryKeys.ITEM, IdentifierUtils.modIdentifier("snow_golem_spawn_egg"))).useItemPrefixedTranslationKey())));
     public static final Item CREAKED_ARMOR_TRIM_SMITHING_TEMPLATE = registerItem("creaked_armor_trim_smithing_template", Suppliers.memoize(() -> SmithingTemplateItem.of(new Item.Settings().registryKey(RegistryKey.of(RegistryKeys.ITEM, IdentifierUtils.modIdentifier("creaked_armor_trim_smithing_template"))))));
+    public static final Item PUMPKIN_SOUP = registerItem("pumpkin_soup", Suppliers.memoize(() -> new Item(new Item.Settings().maxCount(1).food(new FoodComponent(8, 0.6F, false)).useRemainder(Items.BOWL).registryKey(RegistryKey.of(RegistryKeys.ITEM, IdentifierUtils.modIdentifier("pumpkin_soup"))))));
 
     //#endregion
 
@@ -43,6 +42,11 @@ public final class BPGItems {
             itemSettings = itemSettings.component(
                     DataComponentTypes.EQUIPPABLE,
                     EquippableComponent.builder(EquipmentSlot.HEAD).swappable(false).cameraOverlay(Identifier.ofVanilla("misc/pumpkinblur")).build()
+            );
+        } else if(identifier.getPath().equals("glowing_pumpkin")) {
+            itemSettings = itemSettings.component(
+                    DataComponentTypes.EQUIPPABLE,
+                    EquippableComponent.builder(EquipmentSlot.HEAD).swappable(false).cameraOverlay(IdentifierUtils.modIdentifier("misc/glowingpumpkinblur")).build()
             );
         }
 

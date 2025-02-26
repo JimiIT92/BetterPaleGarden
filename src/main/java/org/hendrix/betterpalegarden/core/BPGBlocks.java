@@ -1,6 +1,7 @@
 package org.hendrix.betterpalegarden.core;
 
 import com.google.common.base.Suppliers;
+import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.minecraft.block.*;
 import net.minecraft.block.dispenser.EquippableDispenserBehavior;
 import net.minecraft.block.dispenser.FallibleItemDispenserBehavior;
@@ -18,10 +19,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import org.hendrix.betterpalegarden.BetterPaleGarden;
-import org.hendrix.betterpalegarden.block.CarvedWhitePumpkinBlock;
-import org.hendrix.betterpalegarden.block.ThornBushBlock;
-import org.hendrix.betterpalegarden.block.WaxedCreakingHeartBlock;
-import org.hendrix.betterpalegarden.block.WhitePumpkinBlock;
+import org.hendrix.betterpalegarden.block.*;
 import org.hendrix.betterpalegarden.utils.IdentifierUtils;
 
 import java.util.function.Supplier;
@@ -104,6 +102,35 @@ public final class BPGBlocks {
                     .registryKey(RegistryKey.of(RegistryKeys.BLOCK, IdentifierUtils.modIdentifier("mossy_resin_bricks")))
     )));
 
+    public static final Block GLOWING_PUMPKIN = registerBlock("glowing_pumpkin", Suppliers.memoize(() -> new GlowingPumpkinBlock(
+            AbstractBlock.Settings.create()
+                    .mapColor(MapColor.WHITE)
+                    .strength(1.0F)
+                    .sounds(BlockSoundGroup.WOOD)
+                    .allowsSpawning(Blocks::always)
+                    .pistonBehavior(PistonBehavior.DESTROY)
+                    .ticksRandomly()
+                    .luminance(state -> state.get(GlowingPumpkinBlock.OPEN) ? 3 : 0)
+                    .registryKey(RegistryKey.of(RegistryKeys.BLOCK, IdentifierUtils.modIdentifier("glowing_pumpkin")))
+    )));
+
+    public static final Block CHRYSANTHEMUM = registerBlock("chrysanthemum", Suppliers.memoize(() -> new TallFlowerBlock(
+            AbstractBlock.Settings.create()
+                    .mapColor(MapColor.PALE_PURPLE)
+                    .noCollision()
+                    .breakInstantly()
+                    .sounds(BlockSoundGroup.GRASS)
+                    .offset(AbstractBlock.OffsetType.XZ)
+                    .burnable()
+                    .pistonBehavior(PistonBehavior.DESTROY)
+                    .registryKey(RegistryKey.of(RegistryKeys.BLOCK, IdentifierUtils.modIdentifier("chrysanthemum")))
+    )));
+
+    public static final Block POTTED_CHRYSANTHEMUM = registerBlock("potted_chrysanthemum", Suppliers.memoize(() -> new FlowerPotBlock(
+            CHRYSANTHEMUM,
+            Blocks.createFlowerPotSettings().registryKey(RegistryKey.of(RegistryKeys.BLOCK, IdentifierUtils.modIdentifier("potted_chrysanthemum")))
+    )));
+
     //#endregion
 
     /**
@@ -136,6 +163,7 @@ public final class BPGBlocks {
      */
     public static void register() {
         registerDispenseBehaviors();
+        registerCompostableBlocks();
     }
 
     /**
@@ -168,6 +196,16 @@ public final class BPGBlocks {
                 return stack;
             }
         });
+    }
+
+    /**
+     * Register {@link ComposterBlock compostable} {@link Block Blocks}
+     */
+    public static void registerCompostableBlocks() {
+        CompostingChanceRegistry.INSTANCE.add(THORN_BUSH, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(WHITE_PUMPKIN, 0.65F);
+        CompostingChanceRegistry.INSTANCE.add(CARVED_WHITE_PUMPKIN, 0.65F);
+        CompostingChanceRegistry.INSTANCE.add(CHRYSANTHEMUM, 0.65F);
     }
 
 }

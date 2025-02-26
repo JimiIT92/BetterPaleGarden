@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_white_pumpkin": {
+      "conditions": {
+        "items": [
+          {
+            "items": "betterpalegarden:white_pumpkin"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_closed_eyeblossom": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:closed_eyeblossom"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "betterpalegarden:glowing_pumpkin_from_closed_eyeblossom"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_closed_eyeblossom",
+      "has_white_pumpkin"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "betterpalegarden:glowing_pumpkin_from_closed_eyeblossom"
+    ]
+  }
+}

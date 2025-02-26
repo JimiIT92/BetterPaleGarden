@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:pumpkin",
+    "betterpalegarden:white_pumpkin",
+    "minecraft:bowl"
+  ],
+  "result": {
+    "count": 1,
+    "id": "betterpalegarden:pumpkin_soup"
+  }
+}

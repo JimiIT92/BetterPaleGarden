@@ -27,6 +27,14 @@ public final class BPGArmorTrimPatterns {
      * @param armorTrimPatternRegisterable The {@link Registerable<ArmorTrimPattern> Armor Trim Pattern registerable}
      */
     public static void bootstrap(final Registerable<ArmorTrimPattern> armorTrimPatternRegisterable) {
-        armorTrimPatternRegisterable.register(CREAKED, new ArmorTrimPattern(CREAKED.getValue(), Registries.ITEM.getEntry(BPGItems.CREAKED_ARMOR_TRIM_SMITHING_TEMPLATE), Text.translatable(Util.createTranslationKey("trim_pattern", CREAKED.getValue())), false));
+        armorTrimPatternRegisterable.register(
+                CREAKED,
+                new ArmorTrimPattern(
+                        CREAKED.getValue(),
+                        Registries.ITEM.getEntry(BPGItems.CREAKED_ARMOR_TRIM_SMITHING_TEMPLATE),
+                        Text.translatable(Util.createTranslationKey("trim_pattern", CREAKED.getValue())),
+                        false
+                )
+        );
     }
 }

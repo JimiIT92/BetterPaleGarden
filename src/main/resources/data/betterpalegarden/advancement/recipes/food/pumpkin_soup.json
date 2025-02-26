@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_white_pumpkin": {
+      "conditions": {
+        "items": [
+          {
+            "items": "betterpalegarden:white_pumpkin"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_pumpkin": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:pumpkin"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "betterpalegarden:pumpkin_soup"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_white_pumpkin",
+      "has_pumpkin"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "betterpalegarden:pumpkin_soup"
+    ]
+  }
+}

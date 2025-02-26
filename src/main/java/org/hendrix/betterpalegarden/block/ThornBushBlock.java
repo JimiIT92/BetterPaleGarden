@@ -2,6 +2,7 @@ package org.hendrix.betterpalegarden.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.TallFlowerBlock;
 import net.minecraft.block.TallPlantBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -15,7 +16,7 @@ import org.hendrix.betterpalegarden.core.BPGDamageTypes;
 /**
  * Implementation class for a {@link TallPlantBlock Thorn Bush Block}
  */
-public final class ThornBushBlock extends TallPlantBlock {
+public final class ThornBushBlock extends TallFlowerBlock {
 
     /**
      * The {@link Float minimum movement range} for an {@link Entity Entity} to take damage

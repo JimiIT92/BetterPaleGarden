@@ -7,9 +7,20 @@
   "block.betterpalegarden.waxed_creaking_heart": "Waxed Creaking Heart",
   "block.betterpalegarden.cracked_resin_bricks": "Cracked Resin Bricks",
   "block.betterpalegarden.mossy_resin_bricks": "Mossy Resin Bricks",
+  "block.betterpalegarden.glowing_pumpkin": "Glowing Pumpkin",
+  "block.betterpalegarden.chrysanthemum": "Chrysanthemum",
+  "block.betterpalegarden.potted_chrysanthemum": "Potted Chrysanthemum",
   "item.betterpalegarden.creaked_armor_trim_smithing_template": "Creaked Armor Trim Smithing Template",
+  "item.betterpalegarden.pumpkin_soup": "Pumpkin Soup",
   "item.betterpalegarden.snow_golem_spawn_egg": "White Pumpkin Snow Golem Spawn Egg",
+  "painting.betterpalegarden.pale.title": "Pale",
   "death.attack.thornBush": "%1$s was poked to death by a thorn bush",
   "death.attack.thornBush.player": "%1$s was poked to death by a thorn bush while trying to escape %2$s",
-  "trim_pattern.betterpalegarden.creaked": "Creaked Armor Trim"
+  "trim_pattern.betterpalegarden.creaked": "Creaked Armor Trim",
+  "advancements.betterpalegarden.story.wear_glowing_pumpkin.title": "I'm a Creak!",
+  "advancements.betterpalegarden.story.wear_glowing_pumpkin.description": "Wear a Glowing Pumpkin",
+  "text.autoconfig.betterpalegarden.option.ENABLE_FOG": "Enable Fog",
+  "text.autoconfig.betterpalegarden.option.ENABLE_FOG.@Tooltip": "Whether Fog should be enabled in the Pale Garden",
+  "text.autoconfig.betterpalegarden.option.FOG_THICKNESS": "Fog Thickness",
+  "text.autoconfig.betterpalegarden.option.FOG_THICKNESS.@Tooltip": "How dense the Fog should be"
 }

@@ -261,7 +261,7 @@ public final class CarvedWhitePumpkinBlock extends HorizontalFacingBlock {
     }
 
     /**
-     * Get the {@link MapCodec<WhitePumpkinBlock> White Pumpkin Block Codec}
+     * Get the {@link MapCodec<CarvedWhitePumpkinBlock> White Pumpkin Block Codec}
      *
      * @return The {@link #CODEC White Pumpkin Block Codec}
      */

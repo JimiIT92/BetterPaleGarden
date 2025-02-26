@@ -27,11 +27,14 @@ public final class BPGItemGroups {
                         entries.add(BPGBlocks.WHITE_PUMPKIN);
                         entries.add(BPGBlocks.CARVED_WHITE_PUMPKIN);
                         entries.add(BPGBlocks.SOUL_O_LANTERN);
+                        entries.add(BPGBlocks.GLOWING_PUMPKIN);
                         entries.add(BPGBlocks.THORN_BUSH);
+                        entries.add(BPGBlocks.CHRYSANTHEMUM);
                         entries.add(BPGBlocks.WAXED_CREAKING_HEART);
                         entries.add(BPGBlocks.CRACKED_RESIN_BRICKS);
                         entries.add(BPGBlocks.MOSSY_RESIN_BRICKS);
                         entries.add(BPGItems.CREAKED_ARMOR_TRIM_SMITHING_TEMPLATE);
+                        entries.add(BPGItems.PUMPKIN_SOUP);
                         entries.add(BPGItems.SNOW_GOLEM_SPAWN_EGG);
                     })
                     .build()

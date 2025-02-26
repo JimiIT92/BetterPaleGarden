@@ -28,8 +28,9 @@ public final class BPGPlacedFeatures {
 
     //#region Placed Features
 
-    public static final RegistryKey<PlacedFeature> PATCH_WHITE_PUMPKIN = PlacedFeatures.of("patch_white_pumpkin");
-    public static final RegistryKey<PlacedFeature> PATCH_THORN_BUSH = PlacedFeatures.of("patch_thorn_bush");
+    public static final RegistryKey<PlacedFeature> PATCH_WHITE_PUMPKIN = register("patch_white_pumpkin");
+    public static final RegistryKey<PlacedFeature> PATCH_THORN_BUSH = register("patch_thorn_bush");
+    public static final RegistryKey<PlacedFeature> PATCH_CHRYSANTHEMUM = register("patch_chrysanthemum");
 
     //#endregion
 
@@ -58,6 +59,25 @@ public final class BPGPlacedFeatures {
                 PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
                 BiomePlacementModifier.of()
         );
+        PlacedFeatures.register(
+                featureRegisterable,
+                PATCH_CHRYSANTHEMUM,
+                registryEntryLookup.getOrThrow(BPGConfiguredFeatures.PATCH_CHRYSANTHEMUM),
+                RarityFilterPlacementModifier.of(3),
+                SquarePlacementModifier.of(),
+                PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
+                BiomePlacementModifier.of()
+        );
+    }
+
+    /**
+     * Register a {@link PlacedFeature Placed Feature}
+     *
+     * @param name The {@link String Placed Feature Name}
+     * @return The {@link RegistryKey<PlacedFeature> registered Placed Feature Registry Key}
+     */
+    private static RegistryKey<PlacedFeature> register(final String name) {
+        return RegistryKey.of(RegistryKeys.PLACED_FEATURE, IdentifierUtils.modIdentifier(name));
     }
 
     /**
@@ -68,12 +88,17 @@ public final class BPGPlacedFeatures {
         BiomeModifications.addFeature(
                 paleGardenBiomeSelector,
                 GenerationStep.Feature.VEGETAL_DECORATION,
-                RegistryKey.of(RegistryKeys.PLACED_FEATURE, IdentifierUtils.modIdentifier("patch_white_pumpkin"))
+                RegistryKey.of(RegistryKeys.PLACED_FEATURE, PATCH_WHITE_PUMPKIN.getValue())
         );
         BiomeModifications.addFeature(
                 paleGardenBiomeSelector,
                 GenerationStep.Feature.VEGETAL_DECORATION,
-                RegistryKey.of(RegistryKeys.PLACED_FEATURE, IdentifierUtils.modIdentifier("patch_thorn_bush"))
+                RegistryKey.of(RegistryKeys.PLACED_FEATURE, PATCH_THORN_BUSH.getValue())
+        );
+        BiomeModifications.addFeature(
+                paleGardenBiomeSelector,
+                GenerationStep.Feature.VEGETAL_DECORATION,
+                RegistryKey.of(RegistryKeys.PLACED_FEATURE, PATCH_CHRYSANTHEMUM.getValue())
         );
     }
 

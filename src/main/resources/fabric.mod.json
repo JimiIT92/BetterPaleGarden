@@ -19,6 +19,9 @@
     ],
     "main": [
       "org.hendrix.betterpalegarden.BetterPaleGarden"
+    ],
+    "modmenu": [
+      "org.hendrix.betterpalegarden.config.BPGModMenu"
     ]
   },
   "mixins": [

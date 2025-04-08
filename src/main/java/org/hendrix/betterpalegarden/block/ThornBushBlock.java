@@ -5,6 +5,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.TallFlowerBlock;
 import net.minecraft.block.TallPlantBlock;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityCollisionHandler;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.server.world.ServerWorld;
@@ -39,9 +40,10 @@ public final class ThornBushBlock extends TallFlowerBlock {
      * @param world The {@link World World reference}
      * @param pos The {@link BlockPos current Block Pos}
      * @param entity The {@link Entity Entity colliding}
+     * @param handler The {@link EntityCollisionHandler Entity collision handler}
      */
     @Override
-    protected void onEntityCollision(final BlockState state, final World world, final BlockPos pos, final Entity entity) {
+    protected void onEntityCollision(final BlockState state, final World world, final BlockPos pos, final Entity entity, final EntityCollisionHandler handler) {
         if (entity instanceof LivingEntity && entity.getType() != EntityType.FOX && entity.getType() != EntityType.BEE) {
             entity.slowMovement(state, new Vec3d(0.8F, 0.75, 0.8F));
             if(world instanceof ServerWorld serverWorld) {

@@ -104,7 +104,7 @@ public final class FogMixin {
                 Objects.requireNonNull(world).isNight() ? new Vector4f(fog.red(), fog.green(), fog.blue(), fogAlpha) : new Vector4f(fogColor, fogColor, fogColor, fogAlpha),
                 BetterPaleGarden.MAX_FOG_THICKNESS - (BetterPaleGarden.isClothConfigInstalled() ? BetterPaleGarden.config().FOG_THICKNESS : BetterPaleGarden.DEFAULT_FOG_THICKNESS),
                 true,
-                client.getRenderTickCounter().getTickDelta(false)
+                client.getRenderTickCounter().getFixedDeltaTicks()
         );
     }
 

@@ -3,6 +3,7 @@ package org.hendrix.betterpalegarden.block;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.*;
+import net.minecraft.block.enums.CreakingHeartState;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.AxeItem;
@@ -38,7 +39,7 @@ public class WaxedCreakingHeartBlock extends Block {
      */
     public WaxedCreakingHeartBlock(final Settings settings) {
         super(settings);
-        this.setDefaultState(this.getDefaultState().with(CreakingHeartBlock.AXIS, Direction.Axis.Y).with(CreakingHeartBlock.ACTIVE, false).with(CreakingHeartBlock.NATURAL, false));
+        this.setDefaultState(this.getDefaultState().with(CreakingHeartBlock.AXIS, Direction.Axis.Y).with(CreakingHeartBlock.ACTIVE, CreakingHeartState.UPROOTED).with(CreakingHeartBlock.NATURAL, false));
     }
 
     /**
@@ -82,7 +83,7 @@ public class WaxedCreakingHeartBlock extends Block {
      * @return The {@link BlockState unwaxed Block State}
      */
     private BlockState getUnwaxedBlockState(final BlockState state, final World world, final BlockPos pos) {
-        return Blocks.CREAKING_HEART.getDefaultState().with(CreakingHeartBlock.AXIS, state.get(CreakingHeartBlock.AXIS)).with(CreakingHeartBlock.ACTIVE, CreakingHeartBlock.shouldBeEnabled(state, world, pos)).with(CreakingHeartBlock.NATURAL, state.get(CreakingHeartBlock.NATURAL));
+        return Blocks.CREAKING_HEART.getDefaultState().with(CreakingHeartBlock.AXIS, state.get(CreakingHeartBlock.AXIS)).with(CreakingHeartBlock.ACTIVE, CreakingHeartBlock.shouldBeEnabled(state, world, pos) ? CreakingHeartState.AWAKE : CreakingHeartState.UPROOTED).with(CreakingHeartBlock.NATURAL, state.get(CreakingHeartBlock.NATURAL));
     }
 
     /**

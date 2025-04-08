@@ -2,7 +2,6 @@ package org.hendrix.betterpalegarden.core;
 
 import net.minecraft.item.equipment.trim.ArmorTrimPattern;
 import net.minecraft.registry.Registerable;
-import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
@@ -31,7 +30,6 @@ public final class BPGArmorTrimPatterns {
                 CREAKED,
                 new ArmorTrimPattern(
                         CREAKED.getValue(),
-                        Registries.ITEM.getEntry(BPGItems.CREAKED_ARMOR_TRIM_SMITHING_TEMPLATE),
                         Text.translatable(Util.createTranslationKey("trim_pattern", CREAKED.getValue())),
                         false
                 )

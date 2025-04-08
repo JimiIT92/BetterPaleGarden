@@ -7,6 +7,7 @@ import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.RenderLayers;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.VertexConsumerProvider;
+import net.minecraft.client.render.block.BlockModelRenderer;
 import net.minecraft.client.render.block.BlockRenderManager;
 import net.minecraft.client.render.entity.LivingEntityRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRenderer;
@@ -55,7 +56,7 @@ public final class SnowGolemWhitePumpkinFeatureRenderer extends FeatureRenderer<
         if (snowGolemEntityRenderState.hasPumpkin) {
             if (!snowGolemEntityRenderState.invisible || snowGolemEntityRenderState.hasOutline) {
                 matrixStack.push();
-                this.getContextModel().getHead().rotate(matrixStack);
+                this.getContextModel().getHead().applyTransform(matrixStack);
                 final float scale = 0.625F;
                 matrixStack.translate(0.0F, -0.34375F, 0.0F);
                 matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(180.0F));
@@ -63,7 +64,7 @@ public final class SnowGolemWhitePumpkinFeatureRenderer extends FeatureRenderer<
                 final BlockState blockState = BPGBlocks.CARVED_WHITE_PUMPKIN.getDefaultState();
                 matrixStack.translate(-0.5F, -0.5F, -0.5F);
                 final VertexConsumer vertexConsumer = snowGolemEntityRenderState.hasOutline && snowGolemEntityRenderState.invisible ? vertexConsumerProvider.getBuffer(RenderLayer.getOutline(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE)) : vertexConsumerProvider.getBuffer(RenderLayers.getEntityBlockLayer(blockState));
-                this.blockRenderManager.getModelRenderer().render(matrixStack.peek(), vertexConsumer, blockState, this.blockRenderManager.getModel(blockState), 0.0F, 0.0F, 0.0F, light, LivingEntityRenderer.getOverlay(snowGolemEntityRenderState, 0.0F));
+                BlockModelRenderer.render(matrixStack.peek(), vertexConsumer, this.blockRenderManager.getModel(blockState), 0.0F, 0.0F, 0.0F, light, LivingEntityRenderer.getOverlay(snowGolemEntityRenderState, 0.0F));
                 matrixStack.pop();
             }
         }

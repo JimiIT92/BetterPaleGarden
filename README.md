@@ -74,7 +74,9 @@ If your idea makes it to the mod you'll also be mentioned in the mod's credits! 
 -------------------------
 ### ⚙ Requirements
 
-No additional mods are required.
+[Cloth Config](https://modrinth.com/mod/cloth-config) is required for configuring the mod.
+
+Additionally, you can use [ModMenu](https://modrinth.com/mod/modmenu) to have a config GUI inside your game, however this is optional
 
 -------------------------
 ### 🖥 Downloads

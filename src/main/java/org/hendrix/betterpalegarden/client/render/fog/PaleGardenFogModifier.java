@@ -63,7 +63,7 @@ public final class PaleGardenFogModifier extends FogModifier {
      * @return {@link Boolean True if the Fog should be applied}
      */
     public boolean shouldApply(final @Nullable CameraSubmersionType submersionType, final Entity cameraEntity) {
-        return submersionType == CameraSubmersionType.ATMOSPHERIC && BiomeUtils.isInPaleGarden(cameraEntity.getWorld(), cameraEntity.getBlockPos());
+        return submersionType == CameraSubmersionType.ATMOSPHERIC && BetterPaleGarden.config().ENABLE_FOG && BiomeUtils.isInPaleGarden(cameraEntity.getWorld(), cameraEntity.getBlockPos());
     }
 
 }

@@ -55,7 +55,7 @@ public final class WhitePumpkinBlock extends Block {
         if (!stack.isOf(Items.SHEARS)) {
             return super.onUseWithItem(stack, state, world, pos, player, hand, hit);
         }
-        if (world.isClient) {
+        if (world.isClient()) {
             return ActionResult.SUCCESS;
         }
         final Direction hitSide = hit.getSide();
@@ -71,7 +71,7 @@ public final class WhitePumpkinBlock extends Block {
         );
         itemEntity.setVelocity(0.05 * (double)pumpkinFaceDirection.getOffsetX() + world.random.nextDouble() * 0.02, 0.05, 0.05 * (double)pumpkinFaceDirection.getOffsetZ() + world.random.nextDouble() * 0.02);
         world.spawnEntity(itemEntity);
-        stack.damage(1, player, LivingEntity.getSlotForHand(hand));
+        stack.damage(1, player, hand.getEquipmentSlot());
         world.emitGameEvent(player, GameEvent.SHEAR, pos);
         player.incrementStat(Stats.USED.getOrCreateStat(Items.SHEARS));
         return ActionResult.SUCCESS;

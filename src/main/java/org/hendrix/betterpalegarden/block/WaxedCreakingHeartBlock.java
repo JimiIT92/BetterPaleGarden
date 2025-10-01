@@ -59,7 +59,7 @@ public class WaxedCreakingHeartBlock extends Block {
         if (!(stack.getItem() instanceof AxeItem axeItem)) {
             return super.onUseWithItem(stack, state, world, pos, player, hand, hit);
         }
-        if (world.isClient) {
+        if (world.isClient()) {
             return ActionResult.SUCCESS;
         }
         if (player instanceof ServerPlayerEntity) {
@@ -68,7 +68,7 @@ public class WaxedCreakingHeartBlock extends Block {
         final BlockState strippedBlockState = getUnwaxedBlockState(state, world, pos);
         world.playSound(null, pos, SoundEvents.ITEM_AXE_STRIP, SoundCategory.BLOCKS, 1.0F, 1.0F);
         world.setBlockState(pos, strippedBlockState, Block.NOTIFY_ALL_AND_REDRAW);
-        stack.damage(1, player, LivingEntity.getSlotForHand(hand));
+        stack.damage(1, player, hand.getEquipmentSlot());
         world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, strippedBlockState));
         world.syncWorldEvent(player, WorldEvents.BLOCK_SCRAPED, pos, 0);
         return ActionResult.SUCCESS;

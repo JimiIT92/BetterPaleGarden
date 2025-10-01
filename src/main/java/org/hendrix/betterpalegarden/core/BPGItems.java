@@ -25,7 +25,7 @@ public final class BPGItems {
 
     //#region Items
 
-    public static final Item SNOW_GOLEM_SPAWN_EGG = registerItem("snow_golem_spawn_egg", Suppliers.memoize(() -> new SpawnEggItem(BPGEntities.SNOW_GOLEM, new Item.Settings().registryKey(RegistryKey.of(RegistryKeys.ITEM, IdentifierUtils.modIdentifier("snow_golem_spawn_egg"))).useItemPrefixedTranslationKey())));
+    public static final Item SNOW_GOLEM_SPAWN_EGG = registerItem("snow_golem_spawn_egg", Suppliers.memoize(() -> new SpawnEggItem(new Item.Settings().spawnEgg(BPGEntities.SNOW_GOLEM).registryKey(RegistryKey.of(RegistryKeys.ITEM, IdentifierUtils.modIdentifier("snow_golem_spawn_egg"))).useItemPrefixedTranslationKey())));
     public static final Item CREAKED_ARMOR_TRIM_SMITHING_TEMPLATE = registerItem("creaked_armor_trim_smithing_template", Suppliers.memoize(() -> SmithingTemplateItem.of(new Item.Settings().rarity(Rarity.UNCOMMON).registryKey(RegistryKey.of(RegistryKeys.ITEM, IdentifierUtils.modIdentifier("creaked_armor_trim_smithing_template"))))));
     public static final Item PUMPKIN_SOUP = registerItem("pumpkin_soup", Suppliers.memoize(() -> new Item(new Item.Settings().maxCount(1).food(new FoodComponent(8, 0.6F, false)).useRemainder(Items.BOWL).registryKey(RegistryKey.of(RegistryKeys.ITEM, IdentifierUtils.modIdentifier("pumpkin_soup"))))));
 

@@ -184,7 +184,7 @@ public final class BPGBlocks {
                 final BlockPos blockPos = pointer.pos().offset(pointer.state().get(DispenserBlock.FACING));
                 final CarvedWhitePumpkinBlock carvedWhitePumpkinBlock = (CarvedWhitePumpkinBlock)CARVED_WHITE_PUMPKIN;
                 if (world.isAir(blockPos) && carvedWhitePumpkinBlock.canDispense(world, blockPos)) {
-                    if (!world.isClient) {
+                    if (!world.isClient()) {
                         world.setBlockState(blockPos, carvedWhitePumpkinBlock.getDefaultState(), Block.NOTIFY_ALL);
                         world.emitGameEvent(null, GameEvent.BLOCK_PLACE, blockPos);
                     }

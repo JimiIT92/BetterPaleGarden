@@ -47,7 +47,7 @@ public final class ThornBushBlock extends TallFlowerBlock {
         if (entity instanceof LivingEntity && entity.getType() != EntityType.FOX && entity.getType() != EntityType.BEE) {
             entity.slowMovement(state, new Vec3d(0.8F, 0.75, 0.8F));
             if(world instanceof ServerWorld serverWorld) {
-                final Vec3d movementDistance = entity.isControlledByPlayer() ? entity.getMovement() : entity.getLastRenderPos().subtract(entity.getPos());
+                final Vec3d movementDistance = entity.isControlledByPlayer() ? entity.getMovement() : entity.getLastRenderPos().subtract(entity.getEntityPos());
                 if (movementDistance.horizontalLengthSquared() > 0.0) {
                     if (Math.abs(movementDistance.getX()) >= MIN_MOVEMENT_FOR_DAMAGE || Math.abs(movementDistance.getZ()) >= MIN_MOVEMENT_FOR_DAMAGE) {
                         entity.damage(serverWorld, BPGDamageTypes.of(serverWorld, BPGDamageTypes.THORN_BUSH), 1.0F);

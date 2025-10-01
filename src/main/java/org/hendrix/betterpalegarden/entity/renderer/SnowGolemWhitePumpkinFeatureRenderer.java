@@ -9,12 +9,14 @@ import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.block.BlockModelRenderer;
 import net.minecraft.client.render.block.BlockRenderManager;
+import net.minecraft.client.render.command.OrderedRenderCommandQueue;
 import net.minecraft.client.render.entity.LivingEntityRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRendererContext;
 import net.minecraft.client.render.entity.feature.SnowGolemPumpkinFeatureRenderer;
 import net.minecraft.client.render.entity.model.SnowGolemEntityModel;
 import net.minecraft.client.render.entity.state.SnowGolemEntityRenderState;
+import net.minecraft.client.render.model.BlockStateModel;
 import net.minecraft.client.texture.SpriteAtlasTexture;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.RotationAxis;
@@ -46,15 +48,15 @@ public final class SnowGolemWhitePumpkinFeatureRenderer extends FeatureRenderer<
      * Render the {@link BPGBlocks#WHITE_PUMPKIN White Pumpkin}
      *
      * @param matrixStack The {@link MatrixStack Render Matrix Stack}
-     * @param vertexConsumerProvider The {@link VertexConsumerProvider Vertex Consumer Provider}
+     * @param orderedRenderCommandQueue The {@link VertexConsumerProvider Vertex Consumer Provider}
      * @param light The {@link Integer client light}
      * @param snowGolemEntityRenderState The {@link SnowGolemEntityRenderState Snow Golem Entity Render State}
-     * @param yaw The {@link Float mob Yaw}
-     * @param pitch The {@link Float mob Pitch}
+     * @param limbAngle The {@link Float entity limb angle}
+     * @param limbDistance The {@link Float entity limb distance}
      */
-    public void render(final MatrixStack matrixStack, final VertexConsumerProvider vertexConsumerProvider, final int light, final SnowGolemEntityRenderState snowGolemEntityRenderState, final float yaw, final float pitch) {
+    public void render(final MatrixStack matrixStack, final OrderedRenderCommandQueue orderedRenderCommandQueue, final int light, final SnowGolemEntityRenderState snowGolemEntityRenderState, final float limbAngle, final float limbDistance) {
         if (snowGolemEntityRenderState.hasPumpkin) {
-            if (!snowGolemEntityRenderState.invisible || snowGolemEntityRenderState.hasOutline) {
+            if (!snowGolemEntityRenderState.invisible || snowGolemEntityRenderState.hasOutline()) {
                 matrixStack.push();
                 this.getContextModel().getHead().applyTransform(matrixStack);
                 final float scale = 0.625F;
@@ -62,9 +64,11 @@ public final class SnowGolemWhitePumpkinFeatureRenderer extends FeatureRenderer<
                 matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(180.0F));
                 matrixStack.scale(scale, -scale, -scale);
                 final BlockState blockState = BPGBlocks.CARVED_WHITE_PUMPKIN.getDefaultState();
+                final BlockStateModel blockStateModel = this.blockRenderManager.getModel(blockState);
+                final int overlay = LivingEntityRenderer.getOverlay(snowGolemEntityRenderState, 0.0F);
                 matrixStack.translate(-0.5F, -0.5F, -0.5F);
-                final VertexConsumer vertexConsumer = snowGolemEntityRenderState.hasOutline && snowGolemEntityRenderState.invisible ? vertexConsumerProvider.getBuffer(RenderLayer.getOutline(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE)) : vertexConsumerProvider.getBuffer(RenderLayers.getEntityBlockLayer(blockState));
-                BlockModelRenderer.render(matrixStack.peek(), vertexConsumer, this.blockRenderManager.getModel(blockState), 0.0F, 0.0F, 0.0F, light, LivingEntityRenderer.getOverlay(snowGolemEntityRenderState, 0.0F));
+                RenderLayer renderLayer = snowGolemEntityRenderState.hasOutline() && snowGolemEntityRenderState.invisible ? RenderLayer.getOutline(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE) : RenderLayers.getEntityBlockLayer(blockState);
+                orderedRenderCommandQueue.submitBlockStateModel(matrixStack, renderLayer, blockStateModel, 0.0F, 0.0F, 0.0F, light, overlay, snowGolemEntityRenderState.outlineColor);
                 matrixStack.pop();
             }
         }

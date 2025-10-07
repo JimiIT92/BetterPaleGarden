@@ -41,9 +41,10 @@ public final class ThornBushBlock extends TallFlowerBlock {
      * @param pos The {@link BlockPos current Block Pos}
      * @param entity The {@link Entity Entity colliding}
      * @param handler The {@link EntityCollisionHandler Entity collision handler}
+     * @param simulate {@link Boolean Whether the damage should be simulated}
      */
     @Override
-    protected void onEntityCollision(final BlockState state, final World world, final BlockPos pos, final Entity entity, final EntityCollisionHandler handler) {
+    protected void onEntityCollision(final BlockState state, final World world, final BlockPos pos, final Entity entity, final EntityCollisionHandler handler, final boolean simulate) {
         if (entity instanceof LivingEntity && entity.getType() != EntityType.FOX && entity.getType() != EntityType.BEE) {
             entity.slowMovement(state, new Vec3d(0.8F, 0.75, 0.8F));
             if(world instanceof ServerWorld serverWorld) {

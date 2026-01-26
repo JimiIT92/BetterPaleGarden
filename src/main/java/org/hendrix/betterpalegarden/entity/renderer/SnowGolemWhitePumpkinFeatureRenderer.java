@@ -3,11 +3,10 @@ package org.hendrix.betterpalegarden.entity.renderer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockState;
+import net.minecraft.client.render.BlockRenderLayers;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.RenderLayers;
-import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.VertexConsumerProvider;
-import net.minecraft.client.render.block.BlockModelRenderer;
 import net.minecraft.client.render.block.BlockRenderManager;
 import net.minecraft.client.render.command.OrderedRenderCommandQueue;
 import net.minecraft.client.render.entity.LivingEntityRenderer;
@@ -67,7 +66,7 @@ public final class SnowGolemWhitePumpkinFeatureRenderer extends FeatureRenderer<
                 final BlockStateModel blockStateModel = this.blockRenderManager.getModel(blockState);
                 final int overlay = LivingEntityRenderer.getOverlay(snowGolemEntityRenderState, 0.0F);
                 matrixStack.translate(-0.5F, -0.5F, -0.5F);
-                RenderLayer renderLayer = snowGolemEntityRenderState.hasOutline() && snowGolemEntityRenderState.invisible ? RenderLayer.getOutline(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE) : RenderLayers.getEntityBlockLayer(blockState);
+                RenderLayer renderLayer = snowGolemEntityRenderState.hasOutline() && snowGolemEntityRenderState.invisible ? RenderLayers.outlineNoCull(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE) : BlockRenderLayers.getEntityBlockLayer(blockState);
                 orderedRenderCommandQueue.submitBlockStateModel(matrixStack, renderLayer, blockStateModel, 0.0F, 0.0F, 0.0F, light, overlay, snowGolemEntityRenderState.outlineColor);
                 matrixStack.pop();
             }

@@ -10,7 +10,6 @@ import net.minecraft.client.render.fog.FogModifier;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.BiomeKeys;
 import org.hendrix.betterpalegarden.BetterPaleGarden;
 import org.hendrix.betterpalegarden.utils.BiomeUtils;
@@ -39,14 +38,13 @@ public final class PaleGardenFogModifier extends FogModifier {
      * Apply the fog
      *
      * @param data The {@link FogData Fog data}
-     * @param cameraEntity The {@link Entity Entity that the Fog should be applied to}
-     * @param cameraPos The {@link BlockPos Camera Block Pos}
+     * @param camera The {@link Camera entity camera instance}
      * @param world The {@link ClientWorld World reference}
      * @param viewDistance The {@link Float view distance}
      * @param tickCounter The {@link RenderTickCounter tick counter}
      */
-    public void applyStartEndModifier(final FogData data, final Entity cameraEntity, final BlockPos cameraPos, final ClientWorld world, final float viewDistance, final RenderTickCounter tickCounter) {
-        if (cameraEntity instanceof LivingEntity) {
+    public void applyStartEndModifier(final FogData data, final Camera camera, final ClientWorld world, final float viewDistance, final RenderTickCounter tickCounter) {
+        if (camera.getFocusedEntity() instanceof LivingEntity) {
             final float fogThickness = (7.0F * BetterPaleGarden.MAX_FOG_THICKNESS) / BetterPaleGarden.config().FOG_THICKNESS;
             data.environmentalStart = fogThickness * 0.25F;
             data.environmentalEnd = fogThickness;

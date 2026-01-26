@@ -33,7 +33,7 @@ public final class BetterPaleGardenClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         BlockRenderLayerMap.putBlocks(
-                BlockRenderLayer.CUTOUT_MIPPED,
+                BlockRenderLayer.CUTOUT,
                 BPGBlocks.THORN_BUSH,
                 BPGBlocks.GLOWING_PUMPKIN,
                 BPGBlocks.CHRYSANTHEMUM,

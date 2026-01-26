@@ -65,7 +65,7 @@ public final class GlowingPumpkinBlock extends HorizontalFacingBlock {
      * @return {@link Boolean True if the Block should open}
      */
     private Boolean shouldOpen(final World world) {
-        return world.getDimension().natural() && !world.isDay();
+        return world.getDimension().hasSkyLight() && !world.isDay();
     }
 
     /**

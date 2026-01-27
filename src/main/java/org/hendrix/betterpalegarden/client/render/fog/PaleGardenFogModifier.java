@@ -63,6 +63,7 @@ public final class PaleGardenFogModifier extends FogModifier {
     public void applyStartEndModifier(final FogData data, final Camera camera, final ClientWorld world, final float viewDistance, final RenderTickCounter tickCounter) {
         if (camera.getFocusedEntity() instanceof LivingEntity cameraEntity) {
             final boolean isInPaleGarden = this.isInPaleGarden(cameraEntity);
+            float fogStart, fogEnd, skyEnd, cloudEnd;
             if(isInPaleGarden || this.ticksInsidePaleGarden > 0) {
                 if(isInPaleGarden) {
                     this.ticksInsidePaleGarden = Math.min(this.ticksInsidePaleGarden + 1, this.maxTicksForFogThickness);
@@ -70,28 +71,28 @@ public final class PaleGardenFogModifier extends FogModifier {
                     this.ticksInsidePaleGarden--;
                 }
                 final float fogThickness = MAX_FOG_THICKNESS * this.getFogThicknessMultiplier();
-                data.environmentalStart = fogThickness * 0.25F;
-                data.environmentalEnd = fogThickness;
-                data.skyEnd = fogThickness * 0.8F;
-                data.cloudEnd = fogThickness * 0.8F;
+                fogStart = fogThickness * 0.25F;
+                fogEnd = fogThickness;
+                skyEnd = fogThickness * 0.8F;
+                cloudEnd = fogThickness * 0.8F;
             } else {
                 final WorldEnvironmentAttributeAccess environmentAttributes = world.getEnvironmentAttributes();
-                final float fogStart = environmentAttributes.getAttributeValue(EnvironmentAttributes.FOG_START_DISTANCE_VISUAL);
-                final float fogEnd = environmentAttributes.getAttributeValue(EnvironmentAttributes.FOG_END_DISTANCE_VISUAL);
-                final float skyEnd = environmentAttributes.getAttributeValue(EnvironmentAttributes.SKY_FOG_END_DISTANCE_VISUAL);
-                final float cloudEnd = environmentAttributes.getAttributeValue(EnvironmentAttributes.CLOUD_FOG_END_DISTANCE_VISUAL);
-                if(data.environmentalStart != fogStart) {
-                    data.environmentalStart = fogStart;
-                }
-                if(data.environmentalEnd != fogEnd) {
-                    data.environmentalEnd = fogEnd;
-                }
-                if(data.skyEnd != skyEnd) {
-                    data.skyEnd = skyEnd;
-                }
-                if(data.cloudEnd != cloudEnd) {
-                    data.cloudEnd = cloudEnd;
-                }
+                fogStart = environmentAttributes.getAttributeValue(EnvironmentAttributes.FOG_START_DISTANCE_VISUAL);
+                fogEnd = environmentAttributes.getAttributeValue(EnvironmentAttributes.FOG_END_DISTANCE_VISUAL);
+                skyEnd = environmentAttributes.getAttributeValue(EnvironmentAttributes.SKY_FOG_END_DISTANCE_VISUAL);
+                cloudEnd = environmentAttributes.getAttributeValue(EnvironmentAttributes.CLOUD_FOG_END_DISTANCE_VISUAL);
+            }
+            if(data.environmentalStart != fogStart) {
+                data.environmentalStart = fogStart;
+            }
+            if(data.environmentalEnd != fogEnd) {
+                data.environmentalEnd = fogEnd;
+            }
+            if(data.skyEnd != skyEnd) {
+                data.skyEnd = skyEnd;
+            }
+            if(data.cloudEnd != cloudEnd) {
+                data.cloudEnd = cloudEnd;
             }
         }
     }

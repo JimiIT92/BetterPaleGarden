@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/orientable",
-  "textures": {
-    "front": "betterpalegarden:block/closed_glowing_pumpkin",
-    "side": "betterpalegarden:block/white_pumpkin_side",
-    "top": "betterpalegarden:block/white_pumpkin_top"
-  }
-}

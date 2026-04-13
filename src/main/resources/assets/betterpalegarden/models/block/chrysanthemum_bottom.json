@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cross",
-  "textures": {
-    "cross": "betterpalegarden:block/chrysanthemum_bottom"
-  }
-}

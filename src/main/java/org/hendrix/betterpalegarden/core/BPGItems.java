@@ -7,6 +7,8 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.SmithingTemplateItem;
 import org.hendrix.betterpalegarden.BetterPaleGarden;
 import org.hendrix.betterpalegarden.utils.IdentifierUtils;
 
@@ -20,6 +22,7 @@ public final class BPGItems {
     //#region Items
 
     public static final Item PUMPKIN_SOUP = register("pumpkin_soup", Item::new, new Item.Properties().stacksTo(1).food(new FoodProperties(8, 0.6F, false)).usingConvertsTo(Items.BOWL));
+    public static final Item CREAKED_ARMOR_TRIM_SMITHING_TEMPLATE = register("creaked_armor_trim_smithing_template", SmithingTemplateItem::createArmorTrimTemplate, new Item.Properties().rarity(Rarity.UNCOMMON));
 
     //#endregion
 

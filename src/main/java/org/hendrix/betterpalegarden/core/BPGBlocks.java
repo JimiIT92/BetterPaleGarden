@@ -79,6 +79,18 @@ public final class BPGBlocks {
             BlockBehaviour.Properties.ofFullCopy(Blocks.CREAKING_HEART)
     );
 
+    public static final Block CRACKED_RESIN_BRICKS = register(
+            "cracked_resin_bricks",
+            Block::new,
+            BlockBehaviour.Properties.ofFullCopy(Blocks.RESIN_BRICKS)
+    );
+
+    public static final Block MOSSY_RESIN_BRICKS = register(
+            "mossy_resin_bricks",
+            Block::new,
+            BlockBehaviour.Properties.ofFullCopy(Blocks.RESIN_BRICKS)
+    );
+
     //#endregion
 
     /**

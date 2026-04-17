@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "betterpalegarden:block/thorn_bush_top"
+  }
+}

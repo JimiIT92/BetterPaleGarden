@@ -27,6 +27,7 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.material.MapColor;
 import org.hendrix.betterpalegarden.BetterPaleGarden;
 import org.hendrix.betterpalegarden.block.CarvedWhitePumpkinBlock;
+import org.hendrix.betterpalegarden.block.ThornBushBlock;
 import org.hendrix.betterpalegarden.block.WhitePumpkinBlock;
 import org.hendrix.betterpalegarden.utils.IdentifierUtils;
 import org.jspecify.annotations.NonNull;
@@ -64,6 +65,12 @@ public final class BPGBlocks {
             BlockBehaviour.Properties.ofFullCopy(Blocks.JACK_O_LANTERN)
                     .mapColor(MapColor.TERRACOTTA_WHITE)
                     .lightLevel(_ -> 10)
+    );
+
+    public static final Block THORN_BUSH = register(
+            "thorn_bush",
+            ThornBushBlock::new,
+            BlockBehaviour.Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH)
     );
 
     //#endregion

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "betterpalegarden:block/thorn_bush_bottom"
+  }
+}

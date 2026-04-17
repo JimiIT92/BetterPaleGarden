@@ -13,6 +13,7 @@
   "license": "MIT",
   "icon": "assets/betterpalegarden/icon.png",
   "environment": "*",
+  "accessWidener" : "${mod_id}.accesswidener",
   "entrypoints": {
     "main": [
       "org.hendrix.betterpalegarden.BetterPaleGarden"

@@ -2,6 +2,7 @@ package org.hendrix.betterpalegarden.core;
 
 import com.mojang.datafixers.util.Pair;
 import net.fabricmc.fabric.api.registry.CompostableRegistry;
+import net.fabricmc.fabric.impl.content.registry.OxidizableBlocksRegistryImpl;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponentType;
@@ -14,9 +15,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.equipment.Equippable;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -28,6 +27,7 @@ import net.minecraft.world.level.material.MapColor;
 import org.hendrix.betterpalegarden.BetterPaleGarden;
 import org.hendrix.betterpalegarden.block.CarvedWhitePumpkinBlock;
 import org.hendrix.betterpalegarden.block.ThornBushBlock;
+import org.hendrix.betterpalegarden.block.WaxedCreakingHeartBlock;
 import org.hendrix.betterpalegarden.block.WhitePumpkinBlock;
 import org.hendrix.betterpalegarden.utils.IdentifierUtils;
 import org.jspecify.annotations.NonNull;
@@ -71,6 +71,12 @@ public final class BPGBlocks {
             "thorn_bush",
             ThornBushBlock::new,
             BlockBehaviour.Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH)
+    );
+
+    public static final Block WAXED_CREAKING_HEART = register(
+            "waxed_creaking_heart",
+            WaxedCreakingHeartBlock::new,
+            BlockBehaviour.Properties.ofFullCopy(Blocks.CREAKING_HEART)
     );
 
     //#endregion
@@ -150,6 +156,7 @@ public final class BPGBlocks {
     public static void register() {
         registerCompostableBlocks();
         registerDispenseBehaviors();
+        OxidizableBlocksRegistryImpl.registerWaxable(Blocks.CREAKING_HEART, WAXED_CREAKING_HEART);
     }
 
 }

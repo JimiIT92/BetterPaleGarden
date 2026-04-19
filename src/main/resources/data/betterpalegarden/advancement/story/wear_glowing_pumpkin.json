@@ -1,0 +1,44 @@
+{
+  "display": {
+    "icon": {
+      "id": "betterpalegarden:glowing_pumpkin",
+      "count": 1
+    },
+    "title": {
+      "translate": "advancements.betterpalegarden.story.wear_glowing_pumpkin.title"
+    },
+    "description": {
+      "translate": "advancements.betterpalegarden.story.wear_glowing_pumpkin.description"
+    }
+  },
+  "parent": "minecraft:story/root",
+  "criteria": {
+    "glowing_pumpkin": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "player": {
+          "equipment": {
+            "head": {
+              "items": [
+                "betterpalegarden:glowing_pumpkin"
+              ]
+            }
+          }
+        },
+        "items": [
+          {
+            "items": [
+              "betterpalegarden:glowing_pumpkin"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "glowing_pumpkin"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

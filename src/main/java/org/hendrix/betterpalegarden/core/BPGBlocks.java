@@ -22,13 +22,11 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.material.MapColor;
 import org.hendrix.betterpalegarden.BetterPaleGarden;
-import org.hendrix.betterpalegarden.block.CarvedWhitePumpkinBlock;
-import org.hendrix.betterpalegarden.block.ThornBushBlock;
-import org.hendrix.betterpalegarden.block.WaxedCreakingHeartBlock;
-import org.hendrix.betterpalegarden.block.WhitePumpkinBlock;
+import org.hendrix.betterpalegarden.block.*;
 import org.hendrix.betterpalegarden.utils.IdentifierUtils;
 import org.jspecify.annotations.NonNull;
 
@@ -89,6 +87,21 @@ public final class BPGBlocks {
             "mossy_resin_bricks",
             Block::new,
             BlockBehaviour.Properties.ofFullCopy(Blocks.RESIN_BRICKS)
+    );
+
+    public static final Block GLOWING_PUMPKIN = register(
+            "glowing_pumpkin",
+            GlowingPumpkinBlock::new,
+            BlockBehaviour.Properties.ofFullCopy(Blocks.PUMPKIN)
+                    .mapColor(MapColor.TERRACOTTA_WHITE)
+                    .isValidSpawn(Blocks::always)
+                    .randomTicks()
+                    .lightLevel(state -> state.getValue(BlockStateProperties.OPEN) ? 3 : 0),
+            Pair.of(DataComponents.EQUIPPABLE, Equippable.builder(EquipmentSlot.HEAD)
+                    .setSwappable(false)
+                    .setCameraOverlay(IdentifierUtils.modded("misc/glowingpumpkinblur"))
+                    .build()
+            )
     );
 
     //#endregion

@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "betterpalegarden:carved_white_pumpkin"
+    "betterpalegarden:carved_white_pumpkin",
+    "betterpalegarden:glowing_pumpkin"
   ]
 }

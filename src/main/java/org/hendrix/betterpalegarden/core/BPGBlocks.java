@@ -18,9 +18,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.equipment.Equippable;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.DispenserBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.gameevent.GameEvent;
@@ -104,6 +102,18 @@ public final class BPGBlocks {
             )
     );
 
+    public static final Block CHRYSANTHEMUM = register(
+            "chrysanthemum",
+            TallFlowerBlock::new,
+            BlockBehaviour.Properties.ofFullCopy(Blocks.ROSE_BUSH)
+    );
+
+    public static final Block POTTED_CHRYSANTHEMUM = register(
+            "potted_chrysanthemum",
+            properties -> new FlowerPotBlock(CHRYSANTHEMUM, properties),
+            Blocks.flowerPotProperties()
+    );
+
     //#endregion
 
     /**
@@ -147,8 +157,10 @@ public final class BPGBlocks {
      * Register compostable blocks
      */
     private static void registerCompostableBlocks() {
+        CompostableRegistry.INSTANCE.add(THORN_BUSH, 0.3F);
         CompostableRegistry.INSTANCE.add(WHITE_PUMPKIN, 0.65F);
         CompostableRegistry.INSTANCE.add(CARVED_WHITE_PUMPKIN, 0.65F);
+        CompostableRegistry.INSTANCE.add(CHRYSANTHEMUM, 0.65F);
     }
 
     /**

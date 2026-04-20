@@ -17,6 +17,9 @@
   "entrypoints": {
     "main": [
       "org.hendrix.betterpalegarden.BetterPaleGarden"
+    ],
+    "client": [
+      "org.hendrix.betterpalegarden.client.BetterPaleGardenClient"
     ]
   },
   "mixins": [

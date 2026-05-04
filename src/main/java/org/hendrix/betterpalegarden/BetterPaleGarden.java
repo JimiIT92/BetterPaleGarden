@@ -25,6 +25,7 @@ public final class BetterPaleGarden implements ModInitializer {
         BPGLootTables.register();
         BPGCreativeModeTabs.register();
         BPGEntityTypes.register();
+        BPGPlacedFeatures.register();
     }
 
 }

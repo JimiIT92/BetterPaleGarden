@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:jigsaw",
+  "start_pool": "betterpalegarden:haunted_house/start_pool",
+  "size": 2,
+  "max_distance_from_center": 80,
+  "biomes": "#betterpalegarden:has_structure/haunted_house",
+  "step": "surface_structures",
+  "terrain_adaptation": "beard_thin",
+  "start_height": {
+    "absolute": 0
+  },
+  "project_start_to_heightmap": "WORLD_SURFACE_WG",
+  "use_expansion_hack": true,
+  "spawn_overrides": {
+    "creature": {
+      "bounding_box": "full",
+      "spawns": [
+        {
+          "type": "minecraft:vex",
+          "weight": 1,
+          "minCount": 1,
+          "maxCount": 4
+        }
+      ]
+    }
+  }
+}

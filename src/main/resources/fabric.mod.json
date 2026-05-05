@@ -20,9 +20,13 @@
     ],
     "client": [
       "org.hendrix.betterpalegarden.client.BetterPaleGardenClient"
+    ],
+    "modmenu": [
+      "org.hendrix.betterpalegarden.config.BPGModMenu"
     ]
   },
   "mixins": [
+    "${mod_id}.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=${loader_version}",

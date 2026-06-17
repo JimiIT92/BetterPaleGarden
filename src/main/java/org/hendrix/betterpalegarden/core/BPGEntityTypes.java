@@ -5,10 +5,10 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.level.block.Blocks;
 import org.hendrix.betterpalegarden.BetterPaleGarden;
 import org.hendrix.betterpalegarden.entity.WhitePumpkinSnowGolem;
 import org.hendrix.betterpalegarden.utils.IdentifierUtils;
@@ -23,7 +23,7 @@ public final class BPGEntityTypes {
     public static final EntityType<WhitePumpkinSnowGolem> SNOW_GOLEM = register(
             "snow_golem",
             EntityType.Builder.of(WhitePumpkinSnowGolem::new, MobCategory.MISC)
-                    .immuneTo(Blocks.POWDER_SNOW)
+                    .immuneTo(BlockTags.SNOW_GOLEM_IMMUNE_TO)
                     .sized(0.7F, 1.9F)
                     .eyeHeight(1.7F)
                     .clientTrackingRange(8)

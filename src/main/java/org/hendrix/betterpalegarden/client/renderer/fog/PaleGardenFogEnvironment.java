@@ -109,7 +109,7 @@ public final class PaleGardenFogEnvironment extends FogEnvironment {
      */
     @Override
     public boolean isApplicable(final @Nullable FogType fogType, final @NonNull Entity entity) {
-        return fogType == FogType.ATMOSPHERIC && BetterPaleGarden.config().ENABLE_FOG;
+        return fogType == FogType.ATMOSPHERIC && BetterPaleGarden.config().ENABLE_FOG && (this.isInPaleGarden(entity) || this.ticksInsidePaleGarden > 0.0F);
     }
 
     /**

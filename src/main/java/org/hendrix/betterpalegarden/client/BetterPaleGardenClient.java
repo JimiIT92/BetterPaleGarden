@@ -19,6 +19,7 @@ import org.hendrix.betterpalegarden.utils.IdentifierUtils;
 public final class BetterPaleGardenClient implements ClientModInitializer {
 
     public static final ModelLayerLocation SNOW_GOLEM = new ModelLayerLocation(IdentifierUtils.modded("snow_golem"), "main");
+
     /**
      * Initialize the mod's client stuffs
      */
